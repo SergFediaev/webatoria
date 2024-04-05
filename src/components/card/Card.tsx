@@ -1,5 +1,5 @@
 import s from './Card.module.css'
-import {EMOJIS, TITLES} from '../../constants'
+import {EMOJIS, STRINGS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {memo, useEffect, useRef, useState} from 'react'
 import autoAnimate from '@formkit/auto-animate'
@@ -10,6 +10,7 @@ type CardPropsType = {
     id: string
     title: string
     text: string
+    tags: string[]
     likes: number
     dislikes: number
     comments: string[]
@@ -17,7 +18,7 @@ type CardPropsType = {
     open?: boolean
 }
 
-export const Card = memo(({id, title, text, likes, dislikes, comments, favorite, ...rest}: CardPropsType) => {
+export const Card = memo(({id, title, text, tags, likes, dislikes, comments, favorite, ...rest}: CardPropsType) => {
     const [open, setOpen] = useState<boolean>(rest.open || true)
     const parent = useRef(null)
 
@@ -29,8 +30,11 @@ export const Card = memo(({id, title, text, likes, dislikes, comments, favorite,
 
     const like = () => dispatch(likeCard(id))
 
+    const copy = () => navigator.clipboard.writeText(`${title}\n\n${text}`)
+
     return <li className={s.card} ref={parent}>
         <h3>{title}</h3>
+        <p>Tags: {tags.length > 0 ? tags : STRINGS.UNCATEGORIZED}</p>
         {open && <main>
             <p>{text}</p>
         </main>}
@@ -49,8 +53,7 @@ export const Card = memo(({id, title, text, likes, dislikes, comments, favorite,
             <ButtonIcon onClick={() => {
             }}
                         title={TITLES.VIEW}>{EMOJIS.VIEW}</ButtonIcon>
-            <ButtonIcon onClick={() => {
-            }}
+            <ButtonIcon onClick={copy}
                         title={TITLES.COPY}>{EMOJIS.COPY}</ButtonIcon>
             <ButtonIcon onClick={() => setOpen(!open)}
                         title={open ? TITLES.CLOSE : TITLES.OPEN}>{open ? EMOJIS.CLOSE : EMOJIS.OPEN}</ButtonIcon>

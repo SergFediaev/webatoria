@@ -1,6 +1,19 @@
-export const STRINGS = {} as const
+export const STRINGS = {
+    EMPTY: '',
+    ALL: 'ALL',
+    UNCATEGORIZED: 'Uncategorized',
+    REACT: 'React',
+    JAVASCRIPT: 'JavaScript',
+    HTML: 'HTML',
+    CSS: 'CSS',
+} as const
 
 export const EMOJIS = {
+    LOGO: '⚛',
+    READ: '👁️',
+    TRAINING: '‍🎓',
+    ADD: '📝',
+    SETTINGS: '⚙️',
     LIKE: '👍',
     DISLIKE: '👎',
     COMMENTS: '💬',
@@ -10,9 +23,16 @@ export const EMOJIS = {
     COPY: '📋',
     CLOSE: '🔼',
     OPEN: '🔽',
+    UP: '▲',
+    DOWN: '▼',
+    STOP: '🧱',
 } as const
 
 export const TITLES = {
+    READ: 'Reading mode',
+    TRAINING: 'Training mode',
+    ADD: 'Create new card',
+    SETTINGS: 'Open settings',
     LIKE: 'Like',
     DISLIKE: 'Dislike',
     COMMENTS: 'Comments',
@@ -30,5 +50,18 @@ export const DEFAULT_VALUES = {
 } as const
 
 export const ACTION_TYPES = {
+    SET_READING_MODE: 'SET_READING_MODE',
+    CHANGE_FILTER: 'CHANGE_FILTER',
     LIKE_CARD: 'LIKE_CARD',
+} as const
+
+export const BUTTONS = {
+    ARROW_UP: 'ArrowUp',
+    ARROW_DOWN: 'ArrowDown',
+    ENTER: 'Enter',
+    ESCAPE: 'Escape',
+} as const
+
+export const KEYS = {
+    SETTINGS: 'SETTINGS',
 } as const
