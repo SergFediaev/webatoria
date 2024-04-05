@@ -1,5 +1,6 @@
 export const STRINGS = {
     EMPTY: '',
+    TAGS: 'Tags',
     ALL: 'ALL',
     UNCATEGORIZED: 'Uncategorized',
     REACT: 'React',
