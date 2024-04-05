@@ -1,11 +1,11 @@
 import s from './Dashboard.module.css'
 import {useSelector} from 'react-redux'
 import {StoreType} from '../../store/store'
-import {CardType} from '../../store/cards/cards'
 import {Card} from '../card/Card'
 import {memo} from 'react'
 import {SettingsType} from '../../store/settings/settingsTypes'
 import {STRINGS} from '../../constants'
+import {CardType} from '../../store/cards/cardsTypes'
 
 export const Dashboard = memo(() => {
     const cards = useSelector<StoreType, CardType[]>(state => state.cards)
