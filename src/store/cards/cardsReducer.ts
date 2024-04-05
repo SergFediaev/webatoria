@@ -3,9 +3,10 @@ import {ACTION_TYPES} from '../../constants'
 import {CardActionsType} from './cardsTypes'
 
 export const cardsReducer = (cards: CardType[] = getCards(), action: CardActionsType): CardType[] => {
-    switch (action.type) {
+    const {type, payload} = action
+    switch (type) {
         case ACTION_TYPES.LIKE_CARD:
-            return cards
+            return cards.map(card => card.id === payload.id ? {...card, likes: ++card.likes} as CardType : card)
         default:
             return cards
     }

@@ -11,6 +11,8 @@ export type CardType = {
     tags: string[]
     likes: number
     dislikes: number
+    comments: string[]
+    favorite: boolean
 } & DataType
 
 const data: DataType[] = [
@@ -49,9 +51,11 @@ const createCard = (title: string, text: string, tags?: string[]) => {
         id: v1(),
         title,
         text,
-        tags: tags || [] as string[],
+        tags: tags || Array<string>(),
         likes: DEFAULT_VALUES.LIKES,
         dislikes: DEFAULT_VALUES.DISLIKES,
+        comments: Array<string>(),
+        favorite: false,
     }
     return card
 }

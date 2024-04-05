@@ -1,2 +1,10 @@
 .dashboard {
+    padding: 60px;
+}
+
+.dashboard ul {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
 }
