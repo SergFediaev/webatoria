@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://SergFediaev.github.io/webatoria",
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@formkit/auto-animate": "^0.8.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

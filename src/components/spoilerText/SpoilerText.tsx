@@ -1,5 +1,5 @@
 import s from './SpoilerText.module.css'
-import {memo, ReactNode, useState} from 'react'
+import {memo, ReactNode, useEffect, useState} from 'react'
 import {TITLES} from '../../constants'
 
 type SpoilerTextPropsType = {
@@ -9,6 +9,7 @@ type SpoilerTextPropsType = {
 
 export const SpoilerText = memo(({children, ...rest}: SpoilerTextPropsType) => {
     const [visible, setVisible] = useState(rest.visible)
+    useEffect(() => setVisible(rest.visible), [rest.visible])
     const setVisibleHandler = () => {
         if (!visible) setVisible(true)
     }

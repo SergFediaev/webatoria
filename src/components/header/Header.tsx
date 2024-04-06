@@ -22,30 +22,33 @@ export const Header = memo(() => {
     const changeFilterHandler = (filter: FilterType) => dispatch(changeFilter(filter))
     const setReadingModeHandler = () => dispatch(setReadingMode(!settings.readingMode))
     const goHome = () => navigate(PATHS.DASHBOARD)
-    const stub = () => {}
-    const showHome = pathname !== PATHS.DASHBOARD
-    const showSort = pathname === PATHS.DASHBOARD
+    const createCard = () => navigate(PATHS.CREATE_CARD)
+    const stub = () => {} // TODO: remove stub.
+    const isDashboard = pathname === PATHS.DASHBOARD
+    const creating = pathname === PATHS.CREATE_CARD
+    const showMode = pathname !== PATHS.CREATE_CARD && pathname !== PATHS.ERROR_404
     //endregion
 
     return <header className={s.header}>
         <h1>Webat<span className={s.logo}>{EMOJIS.LOGO}</span>ria</h1>
         <nav>
-            {showSort && <Select selectedOption={settings.filter}
-                                 options={cardOptions}
-                                 setSelected={option => changeFilterHandler(option as FilterType)}/>}
-            {showHome && <ButtonIcon onClick={goHome}
-                                     title={TITLES.GO_HOME}>{EMOJIS.HOME}</ButtonIcon>}
-            <ButtonIcon onClick={setReadingModeHandler}
-                        title={settings.readingMode
-                            ? TITLES.TRAINING
-                            : TITLES.READ}>{settings.readingMode
+            {!isDashboard && <ButtonIcon onClick={goHome}
+                                         title={TITLES.GO_HOME}>{EMOJIS.HOME}</ButtonIcon>}
+            {isDashboard && <Select selectedOption={settings.filter}
+                                    options={cardOptions}
+                                    setSelected={option => changeFilterHandler(option as FilterType)}/>}
+            {showMode && <ButtonIcon onClick={setReadingModeHandler}
+                                     title={settings.readingMode
+                                         ? TITLES.TRAINING
+                                         : TITLES.READ}>{settings.readingMode
                 ? EMOJIS.TRAINING
                 : EMOJIS.READ}
-            </ButtonIcon>
+            </ButtonIcon>}
+            {!creating && <ButtonIcon onClick={createCard}
+                                      title={TITLES.ADD}>{EMOJIS.ADD}</ButtonIcon>}
             <ButtonIcon onClick={stub}
-                        title={TITLES.ADD}>{EMOJIS.ADD}</ButtonIcon>
-            <ButtonIcon onClick={stub}
-                        title={TITLES.SETTINGS}>{EMOJIS.SETTINGS}</ButtonIcon>
+                        title={'Settings coming soon'} // TODO: Settings constant + disabled.
+                        disabled={true}>{EMOJIS.SETTINGS}</ButtonIcon>
         </nav>
     </header>
 })

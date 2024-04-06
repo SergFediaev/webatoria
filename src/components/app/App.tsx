@@ -7,6 +7,7 @@ import {Dashboard} from '../dashboard/Dashboard'
 import {CardDetails} from '../cardDetails/CardDetails'
 import {Error404} from '../error404/Error404'
 import {Background} from '../background/Background'
+import {CreateCard} from '../createCard/CreateCard'
 
 export const App = memo(() => <div className={s.app}>
     <Background/>
@@ -18,6 +19,8 @@ export const App = memo(() => <div className={s.app}>
                element={<Dashboard/>}/>
         <Route path={`${PATHS.CARD}${PATHS.ID}`}
                element={<CardDetails/>}/>
+        <Route path={PATHS.CREATE_CARD}
+               element={<CreateCard/>}/>
         <Route path={PATHS.ALL}
                element={<Navigate to={PATHS.ERROR_404}/>}/>
         <Route path={PATHS.ERROR_404} element={<Error404/>}/>

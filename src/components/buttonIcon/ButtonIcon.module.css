@@ -1,7 +1,12 @@
 .buttonIcon {
-    transition: 1s;
+    transition: .5s;
 }
 
 .buttonIcon:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
+}
+
+/* TODO: Make common disabled style */
+button:disabled {
+    color: #000;
 }

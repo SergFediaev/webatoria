@@ -19,12 +19,23 @@ type CardPropsType = {
     open?: boolean
 }
 
-export const Card = memo(({id, title, text, tags, likes, dislikes, comments, favorite, ...rest}: CardPropsType) => {
+export const Card = memo(({
+                              id,
+                              title,
+                              text,
+                              tags,
+                              likes,
+                              dislikes,
+                              comments,
+                              favorite,
+                              ...rest
+                          }: CardPropsType) => {
     //region Local state.
     const [open, setOpen] = useState<boolean>(rest.open || true)
     const parent = useRef(null)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    useEffect(() => setOpen(rest.open || false), [rest.open])
     useEffect(() => {
         parent.current && autoAnimate(parent.current)
     }, [parent])
@@ -34,29 +45,30 @@ export const Card = memo(({id, title, text, tags, likes, dislikes, comments, fav
     const like = () => dispatch(likeCard(id))
     const copy = () => navigator.clipboard.writeText(`${title}\n\n${text}`)
     const view = () => navigate(`${PATHS.CARD}/${id}`)
-    const stub = () => {}
+    const toggleOpen = () => setOpen(!open)
+    const stub = () => {} // TODO: remove stub.
     //endregion
 
     return <li className={s.card} ref={parent}>
         <h3>{title}</h3>
-        <p>{STRINGS.TAGS}: {tags.length > 0 ? tags.join(', ') : STRINGS.UNCATEGORIZED}</p>
+        <p>{STRINGS.TAGS}: {tags.length > 0 ? tags.join(STRINGS.COMMA_SPACE_DELIMITER) : STRINGS.UNCATEGORIZED}</p>
         {open && <main>
             <p>{text}</p>
         </main>}
         <div className={s.menu}>
             <ButtonIcon onClick={like}
-                        title={TITLES.LIKE}>{EMOJIS.LIKE} {likes}</ButtonIcon>
+                        title={TITLES.LIKE}>{EMOJIS.LIKE}{likes}</ButtonIcon>
             <ButtonIcon onClick={stub}
-                        title={TITLES.DISLIKE}>{EMOJIS.DISLIKE} {dislikes}</ButtonIcon>
+                        title={TITLES.DISLIKE}>{EMOJIS.DISLIKE}{dislikes}</ButtonIcon>
             <ButtonIcon onClick={stub}
-                        title={TITLES.COMMENTS}>{EMOJIS.COMMENTS} {comments.length}</ButtonIcon>
+                        title={TITLES.COMMENTS}>{EMOJIS.COMMENTS}{comments.length}</ButtonIcon>
             <ButtonIcon onClick={stub}
                         title={TITLES.FAVORITE}>{EMOJIS.FAVORITE}</ButtonIcon>
             <ButtonIcon onClick={view}
                         title={TITLES.VIEW}>{EMOJIS.VIEW}</ButtonIcon>
             <ButtonIcon onClick={copy}
                         title={TITLES.COPY}>{EMOJIS.COPY}</ButtonIcon>
-            <ButtonIcon onClick={() => setOpen(!open)}
+            <ButtonIcon onClick={toggleOpen}
                         title={open
                             ? TITLES.CLOSE
                             : TITLES.OPEN}>{open

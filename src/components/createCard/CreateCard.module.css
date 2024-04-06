@@ -1,0 +1,78 @@
+.createCard {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: whitesmoke;
+    max-width: 1000px;
+    border-radius: 40px;
+    width: 100%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form input,
+.form textarea {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    outline: 2px solid #000;
+    transition: .3s;
+}
+
+.form input {
+    text-overflow: ellipsis;
+}
+
+.form textarea {
+    resize: vertical;
+    min-height: 200px;
+    max-height: 1000px;
+}
+
+.form input:hover,
+.form input:focus,
+.form textarea:hover,
+.form textarea:focus {
+    outline-color: dodgerblue;
+}
+
+.form input:invalid,
+.form textarea:invalid {
+    outline-color: crimson;
+}
+
+.createCard p {
+    font-size: 1.5rem;
+}
+
+.card h3, .titleContainer button {
+    font-size: 3rem;
+    font-weight: 1000;
+}
+
+.card h3 {
+    text-align: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}

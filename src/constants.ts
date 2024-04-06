@@ -1,5 +1,6 @@
 export const STRINGS = {
     EMPTY: '',
+    COMMA_SPACE_DELIMITER: ', ',
     TAGS: 'Tags',
     ALL: 'ALL',
     UNCATEGORIZED: 'Uncategorized',
@@ -7,13 +8,25 @@ export const STRINGS = {
     JAVASCRIPT: 'JavaScript',
     HTML: 'HTML',
     CSS: 'CSS',
+    OPTIONAL: '(optional)',
+    NAME: 'Name',
+    EMAIL: 'Email',
+    CARD_TITLE: 'Card title',
+    CARD_CATEGORY: 'Card category',
+    CARD_CONTENT: 'Card content',
+    CREATE: 'Create',
+    CREATE_CARD: 'Create card',
+    CARD_CREATED: 'Card created',
+    CARD_SENT: 'Card created and sent for review. It will be on the dashboard soon. Thanks for contributing! 🤝',
+    CREATE_MORE: 'Create more',
+    TO_DASHBOARD: 'Back to dashboard',
 } as const
 
 export const EMOJIS = {
     LOGO: '⚛',
     HOME: '🏠',
     READ: '👁️',
-    TRAINING: '‍🎓',
+    TRAINING: '🧠',
     ADD: '📝',
     SETTINGS: '⚙️',
     LIKE: '👍',
@@ -28,10 +41,12 @@ export const EMOJIS = {
     UP: '▲',
     DOWN: '▼',
     STOP: '🧱',
+    CANCEL: '❌',
 } as const
 
 export const TITLES = {
     GO_HOME: 'Go home',
+    CLOSE_AND_RETURN: 'Close & return to dashboard',
     READ: 'Reading mode',
     TRAINING: 'Training mode',
     ADD: 'Create new card',
@@ -68,6 +83,14 @@ export const BUTTONS = {
 
 export const KEYS = {
     SETTINGS: 'SETTINGS',
+    EMAIL_SERVICE_ID: 'service_n3nrak7',
+    EMAIL_TEMPLATE_ID: 'template_97urqzc',
+    EMAIL_PUBLIC_KEY: 'qp-wrSoJJNl8UcFFy',
+    USER_NAME: 'user_name',
+    USER_EMAIL: 'user_email',
+    CARD_TITLE: 'card_title',
+    CARD_CATEGORY: 'card_category',
+    CARD_CONTENT: 'card_content',
 } as const
 
 export const PATHS = {
@@ -75,6 +98,14 @@ export const PATHS = {
     ALL: '/*',
     ERROR_404: '/error404',
     DASHBOARD: '/dashboard',
+    CREATE_CARD: '/create_card',
     CARD: '/card',
     ID: '/:id',
+} as const
+
+export const TYPES = {
+    TEXT: 'text',
+    BUTTON: 'button',
+    SUBMIT: 'submit',
+    FORM: 'form',
 } as const

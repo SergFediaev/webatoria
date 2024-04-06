@@ -1,3 +1,9 @@
+.select {
+    min-width: 200px;
+    width: min-content;
+    z-index: 1;
+}
+
 .selected {
     padding: 15px;
     border-radius: 20px;
@@ -5,6 +11,8 @@
     display: flex;
     justify-content: space-between;
     transition: .2s linear;
+    gap: 40px;
+    white-space: nowrap;
 }
 
 .selected, .select ul {
@@ -29,7 +37,7 @@
     border-radius: 0 0 20px 20px;
     overflow: hidden;
     box-shadow: -10px 10px 10px 1px rgba(0, 0, 0, .7);
-    z-index: 1;
+    z-index: -1;
 }
 
 .select li {

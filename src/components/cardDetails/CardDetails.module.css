@@ -16,7 +16,13 @@
     font-size: 1.5rem;
 }
 
-.card h3 {
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card h3, .titleContainer button {
     font-size: 3rem;
     font-weight: 1000;
 }

@@ -1,0 +1,17 @@
+.button {
+    background-color: dodgerblue;
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    transition: .3s;
+}
+
+.button:hover {
+    background-color: aliceblue;
+    outline: 2px solid dodgerblue;
+    color: dodgerblue;
+    cursor: pointer;
+}
