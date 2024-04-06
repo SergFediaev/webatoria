@@ -1,6 +1,6 @@
 import s from './WallpaperBackground.module.css'
 import {memo} from 'react'
-import wallpaper1 from '../assets/images/wallpaper1.jpg'
+import wallpaper1 from '../../assets/images/wallpaper1.jpg'
 
 type WallpaperBackgroundPropsType = {}
 

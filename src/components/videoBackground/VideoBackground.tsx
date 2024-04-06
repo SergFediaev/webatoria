@@ -1,6 +1,6 @@
 import s from './VideoBackground.module.css'
 import {memo} from 'react'
-import video1 from '../assets/video/ocean.mp4'
+import video1 from '../../assets/video/ocean.mp4'
 
 type VideoBackgroundPropsType = {
     controls?: boolean
