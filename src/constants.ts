@@ -26,7 +26,7 @@ export const EMOJIS = {
     LOGO: '⚛',
     HOME: '🏠',
     READ: '👁️',
-    TRAINING: '🧠',
+    TRAINING: '‍🎓',
     ADD: '📝',
     SETTINGS: '⚙️',
     LIKE: '👍',

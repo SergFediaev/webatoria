@@ -3,8 +3,7 @@ import {memo} from 'react'
 import {useSelector} from 'react-redux'
 import {StoreType} from '../../store/store'
 import {CardType} from '../../store/cards/cardsTypes'
-import {useNavigate, useParams} from 'react-router-dom'
-import {Error404} from '../error404/Error404'
+import {Navigate, useNavigate, useParams} from 'react-router-dom'
 import {SpoilerText} from '../spoilerText/SpoilerText'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {EMOJIS, PATHS, TITLES} from '../../constants'
@@ -27,5 +26,5 @@ export const CardDetails = memo(() => {
                 <SpoilerText visible={readingMode}>{card.text}</SpoilerText>
             </div>
         </div>
-        : <Error404/>
+        : <Navigate to={PATHS.ERROR_404}/>
 })
