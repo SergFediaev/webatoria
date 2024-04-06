@@ -11,6 +11,7 @@ export const STRINGS = {
 
 export const EMOJIS = {
     LOGO: '⚛',
+    HOME: '🏠',
     READ: '👁️',
     TRAINING: '‍🎓',
     ADD: '📝',
@@ -30,6 +31,7 @@ export const EMOJIS = {
 } as const
 
 export const TITLES = {
+    GO_HOME: 'Go home',
     READ: 'Reading mode',
     TRAINING: 'Training mode',
     ADD: 'Create new card',
@@ -43,6 +45,7 @@ export const TITLES = {
     COPY: 'Copy to clipboard',
     CLOSE: 'Close',
     OPEN: 'Open',
+    SHOW: 'Show',
 } as const
 
 export const DEFAULT_VALUES = {
@@ -65,4 +68,13 @@ export const BUTTONS = {
 
 export const KEYS = {
     SETTINGS: 'SETTINGS',
+} as const
+
+export const PATHS = {
+    ROOT: '/',
+    ALL: '/*',
+    ERROR_404: '/error404',
+    DASHBOARD: '/dashboard',
+    CARD: '/card',
+    ID: '/:id',
 } as const

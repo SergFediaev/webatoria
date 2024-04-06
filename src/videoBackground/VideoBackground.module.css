@@ -1,0 +1,21 @@
+.videoBackground video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .videoBackground video {
+        height: 56.25vw;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .videoBackground video {
+        width: 177.78vh;
+    }
+}

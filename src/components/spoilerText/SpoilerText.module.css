@@ -1,0 +1,20 @@
+.spoilerText {
+    font-size: inherit;
+}
+
+.hide {
+    background-color: green;
+    color: transparent;
+    animation: rotate-hue 5s linear infinite;
+    cursor: help;
+    min-height: 50vh;
+}
+
+@keyframes rotate-hue {
+    from {
+        filter: hue-rotate(0);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}

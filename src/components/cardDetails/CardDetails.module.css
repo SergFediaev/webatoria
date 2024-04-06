@@ -1,0 +1,22 @@
+.cardDetails {
+    display: flex;
+    padding: 100px 50px;
+    justify-content: center;
+    color: #000;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: whitesmoke;
+    max-width: 1200px;
+    padding: 60px;
+    border-radius: 40px;
+    font-size: 1.5rem;
+}
+
+.card h3 {
+    font-size: 3rem;
+    font-weight: 1000;
+}

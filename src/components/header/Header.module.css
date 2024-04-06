@@ -9,6 +9,7 @@
     backdrop-filter: blur(10px);
     flex-wrap: wrap;
     gap: 30px;
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, .5);
 }
 
 .header nav {
@@ -30,21 +31,15 @@ nav span {
     color: #61dafb;
 }
 
-.logo, .header button {
-    line-height: 0;
-}
-
 .logo {
-    position: relative;
-    top: 4px;
-    font-size: inherit;
+    font-size: 2.6rem;
     display: inline-block;
     animation: spinning infinite 10s linear;
 }
 
 @keyframes spinning {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0);
     }
     to {
         transform: rotate(360deg);

@@ -2,6 +2,7 @@ import {v1} from 'uuid'
 import {DEFAULT_VALUES, STRINGS} from '../../constants'
 import {OptionType} from '../../components/select/Select'
 import {CardType, DataType} from './cardsTypes'
+import {getRandomInteger} from '../mock'
 
 const data: DataType[] = [
     {
@@ -41,9 +42,9 @@ const createCard = (title: string, text: string, tags?: string[]) => ({
     title,
     text,
     tags: tags || Array<string>(),
-    likes: DEFAULT_VALUES.LIKES,
-    dislikes: DEFAULT_VALUES.DISLIKES,
-    comments: Array<string>(),
+    likes: getRandomInteger() || DEFAULT_VALUES.LIKES,
+    dislikes: getRandomInteger() || DEFAULT_VALUES.DISLIKES,
+    comments: Array<string>(getRandomInteger()),
     favorite: false,
 } as CardType)
 

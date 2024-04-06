@@ -1,0 +1,8 @@
+.error404 {
+    text-align: center;
+    color: antiquewhite;
+    background-color: darkred;
+    font-size: 10rem;
+    font-weight: 1000;
+    padding: 50px;
+}
