@@ -1,5 +1,6 @@
 .spoilerText {
     font-size: inherit;
+    white-space: pre-wrap;
 }
 
 .hide {

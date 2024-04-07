@@ -9,6 +9,10 @@
     box-shadow: -5px 5px 5px 1px rgba(0, 0, 0, .5);
 }
 
+.card main {
+    white-space: pre-wrap;
+}
+
 .card h3 {
     font-size: 1.3rem;
     font-weight: 600;

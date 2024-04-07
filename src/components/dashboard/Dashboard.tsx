@@ -4,7 +4,7 @@ import {StoreType} from '../../store/store'
 import {Card} from '../card/Card'
 import {memo} from 'react'
 import {SettingsType} from '../../store/settings/settingsTypes'
-import {STRINGS} from '../../constants'
+import {LINKS, STRINGS} from '../../constants'
 import {CardType} from '../../store/cards/cardsTypes'
 
 export const Dashboard = memo(() => {
@@ -25,7 +25,11 @@ export const Dashboard = memo(() => {
                                                          comments={card.comments}
                                                          favorite={card.favorite}
                                                          open={settings.readingMode}/>)
-    return <div className={s.dashboard}>
-        <ul>{cardElements}</ul>
-    </div>
+    return cardElements.length > 0
+        ? <div className={s.dashboard}>
+            <ul>{cardElements}</ul>
+        </div>
+        : <div className={s.project}>
+            <a href={LINKS.PROJECT_REPO_URL}>{LINKS.PROJECT_REPO_NAME}</a>
+        </div>
 })
