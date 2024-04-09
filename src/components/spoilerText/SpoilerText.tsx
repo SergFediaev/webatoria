@@ -1,6 +1,7 @@
 import s from './SpoilerText.module.css'
 import {memo, ReactNode, useEffect, useState} from 'react'
-import {TITLES} from '../../constants'
+import {RENDERS, TITLES} from '../../constants'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 type SpoilerTextPropsType = {
     children: ReactNode
@@ -8,6 +9,7 @@ type SpoilerTextPropsType = {
 }
 
 export const SpoilerText = memo(({children, ...rest}: SpoilerTextPropsType) => {
+    logRender(RENDERS.SPOILER_TEXT)
     const [visible, setVisible] = useState(rest.visible)
     useEffect(() => setVisible(rest.visible), [rest.visible])
     const setVisibleHandler = () => {

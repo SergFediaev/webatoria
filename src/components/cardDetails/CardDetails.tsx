@@ -6,9 +6,11 @@ import {CardType} from '../../store/cards/cardsTypes'
 import {Navigate, useNavigate, useParams} from 'react-router-dom'
 import {SpoilerText} from '../spoilerText/SpoilerText'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
-import {EMOJIS, PATHS, TITLES} from '../../constants'
+import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 export const CardDetails = memo(() => {
+    logRender(RENDERS.CARD_DETAILS)
     const {id} = useParams()
     const card = useSelector<StoreType, CardType | undefined>(state => state.cards.find(card => card.id === id))
     const readingMode = useSelector<StoreType, boolean>(state => state.settings.readingMode)

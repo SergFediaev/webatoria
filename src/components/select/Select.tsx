@@ -1,7 +1,8 @@
 import s from './Select.module.css'
 import {KeyboardEvent, memo, MouseEvent, useState} from 'react'
 import {useAutoAnimate} from '@formkit/auto-animate/react'
-import {BUTTONS, EMOJIS, STRINGS} from '../../constants'
+import {BUTTONS, EMOJIS, RENDERS, STRINGS} from '../../constants'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 type SelectPropsType = {
     selectedOption: string
@@ -22,6 +23,8 @@ export const Select = memo(({
                                 setSelected,
                                 endlessSelect = true,
                             }: SelectPropsType) => {
+    logRender(RENDERS.SELECT)
+
     //region Local.
     const unlockedOptions = options.filter(option => !option.disabled)
     const selected = unlockedOptions.find(option => option.name === selectedOption) || options[0]

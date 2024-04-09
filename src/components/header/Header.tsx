@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import s from './Header.module.css'
-import {EMOJIS, PATHS, TITLES} from '../../constants'
+import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {Select} from '../select/Select'
 import {cardOptions} from '../../store/cards/cards'
@@ -9,8 +9,11 @@ import {StoreType} from '../../store/store'
 import {FilterType, SettingsType} from '../../store/settings/settingsTypes'
 import {changeFilter, setReadingMode} from '../../store/settings/settingsActions'
 import {useLocation, useNavigate} from 'react-router-dom'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 export const Header = memo(() => {
+    logRender(RENDERS.HEADER)
+
     //region Local state.
     const settings = useSelector<StoreType, SettingsType>(state => state.settings)
     const dispatch = useDispatch()

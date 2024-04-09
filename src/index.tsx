@@ -12,13 +12,13 @@ const root = ReactDOM.createRoot(
 )
 
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <HashRouter>
-                <App/>
-            </HashRouter>
-        </Provider>
-    </React.StrictMode>,
+    // <React.StrictMode> // TODO: Return strict mode.
+    <Provider store={store}>
+        <HashRouter>
+            <App/>
+        </HashRouter>
+    </Provider>,
+    // </React.StrictMode>,
 )
 
 // If you want to start measuring performance in your app, pass a function

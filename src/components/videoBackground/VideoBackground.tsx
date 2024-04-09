@@ -1,6 +1,8 @@
 import s from './VideoBackground.module.css'
 import {memo} from 'react'
 import video1 from '../../assets/video/video1.mp4'
+import {logRender} from '../../store/settings/settingsHelpers'
+import {RENDERS} from '../../constants'
 
 type VideoBackgroundPropsType = {
     controls?: boolean
@@ -14,10 +16,13 @@ export const VideoBackground = memo(({
                                          autoPlay = true,
                                          loop = true,
                                          muted = true,
-                                     }: VideoBackgroundPropsType) => <div className={s.videoBackground}>
-    <video src={video1}
-           controls={controls}
-           autoPlay={autoPlay}
-           loop={loop}
-           muted={muted}/>
-</div>)
+                                     }: VideoBackgroundPropsType) => {
+    logRender(RENDERS.VIDEO_BACKGROUND)
+    return <div className={s.videoBackground}>
+        <video src={video1}
+               controls={controls}
+               autoPlay={autoPlay}
+               loop={loop}
+               muted={muted}/>
+    </div>
+})

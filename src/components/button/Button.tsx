@@ -1,6 +1,7 @@
 import s from './Button.module.css'
 import {memo, ReactNode} from 'react'
-import {TYPES} from '../../constants'
+import {RENDERS, TYPES} from '../../constants'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 type ButtonPropsType = {
     children: ReactNode
@@ -14,8 +15,11 @@ export const Button = memo(({
                                 onClick,
                                 title,
                                 type = TYPES.BUTTON,
-                            }: ButtonPropsType) => <button
-    className={s.button}
-    onClick={onClick}
-    title={title}
-    type={type}>{children}</button>)
+                            }: ButtonPropsType) => {
+    logRender(RENDERS.BUTTON)
+    return <button
+        className={s.button}
+        onClick={onClick}
+        title={title}
+        type={type}>{children}</button>
+})

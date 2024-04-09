@@ -22,6 +22,25 @@ export const STRINGS = {
     TO_DASHBOARD: 'Back to dashboard',
 } as const
 
+export const RENDERS = {
+    APP: 'App render',
+    BACKGROUND: 'Background render',
+    BUTTON: 'Button render',
+    BUTTON_ICON: 'Button icon render',
+    CARD: 'Card render',
+    CARD_DETAILS: 'Card details render',
+    COLOR_BACKGROUND: 'Color background render',
+    CREATE_CARD: 'Create card render',
+    DASHBOARD: 'Dashboard render',
+    ERROR_404: 'Error 404 render',
+    HEADER: 'Header render',
+    OVERLAY: 'Overlay render',
+    SELECT: 'Select render',
+    SPOILER_TEXT: 'Spoiler text render',
+    VIDEO_BACKGROUND: 'Video background render',
+    WALLPAPER_BACKGROUND: 'Wallpaper background render',
+} as const
+
 export const EMOJIS = {
     LOGO: '⚛',
     HOME: '🏠',

@@ -4,10 +4,12 @@ import {StoreType} from '../../store/store'
 import {Card} from '../card/Card'
 import {memo} from 'react'
 import {SettingsType} from '../../store/settings/settingsTypes'
-import {LINKS, STRINGS} from '../../constants'
+import {LINKS, RENDERS, STRINGS} from '../../constants'
 import {CardType} from '../../store/cards/cardsTypes'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 export const Dashboard = memo(() => {
+    logRender(RENDERS.DASHBOARD)
     const cards = useSelector<StoreType, CardType[]>(state => state.cards)
     const settings = useSelector<StoreType, SettingsType>(state => state.settings)
 

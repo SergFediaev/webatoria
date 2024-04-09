@@ -1,11 +1,12 @@
 import s from './Card.module.css'
-import {EMOJIS, PATHS, STRINGS, TITLES} from '../../constants'
+import {EMOJIS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {memo, useEffect, useRef, useState} from 'react'
 import autoAnimate from '@formkit/auto-animate'
 import {useDispatch} from 'react-redux'
 import {likeCard} from '../../store/cards/cardsActions'
 import {useNavigate} from 'react-router-dom'
+import {logRender} from '../../store/settings/settingsHelpers'
 
 type CardPropsType = {
     id: string
@@ -30,6 +31,8 @@ export const Card = memo(({
                               favorite,
                               ...rest
                           }: CardPropsType) => {
+    logRender(RENDERS.CARD)
+
     //region Local state.
     const [open, setOpen] = useState<boolean>(rest.open || true)
     const parent = useRef(null)
