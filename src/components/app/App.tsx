@@ -7,9 +7,8 @@ import {CardDetails} from '../cardDetails/CardDetails'
 import {Error404} from '../error404/Error404'
 import {Background} from '../background/Background'
 import {CreateCard} from '../createCard/CreateCard'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {PATHS} from '../../constants/paths'
+import {logRender} from '../../utils'
+import {PATHS, RENDERS} from '../../constants'
 
 export const App = () => {
     logRender(RENDERS.APP)

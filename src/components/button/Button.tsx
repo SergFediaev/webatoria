@@ -1,8 +1,7 @@
 import s from './Button.module.css'
 import {memo, ReactNode} from 'react'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {TYPES} from '../../constants/types'
+import {RENDERS, TYPES} from '../../constants'
+import {logRender} from '../../utils'
 
 type ButtonPropsType = {
     children: ReactNode

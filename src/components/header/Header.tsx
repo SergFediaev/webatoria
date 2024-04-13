@@ -1,23 +1,20 @@
-import s from './Header.module.css'
+import {logRender} from '../../utils'
+import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
+import {useDispatch, useSelector} from 'react-redux'
+import {useLocation, useNavigate} from 'react-router-dom'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {Select} from '../select/Select'
-import {cardOptions} from '../../store/cards/cards'
-import {useDispatch, useSelector} from 'react-redux'
-import {StoreType} from '../../store/store'
-import {FilterType, SettingsType} from '../../store/settings/settingsTypes'
-import {changeFilter, setReadingMode} from '../../store/settings/settingsActions'
-import {useLocation, useNavigate} from 'react-router-dom'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {EMOJIS} from '../../constants/emojis'
-import {TITLES} from '../../constants/titles'
-import {PATHS} from '../../constants/paths'
+import s from './Header.module.css'
+import {selectSettings} from '../../store/selectors'
+import {FilterType} from '../../types'
+import {changeFilter, setReadingMode} from '../../store/actions'
+import {cardOptions} from '../../store/cards'
 
 export const Header = () => {
     logRender(RENDERS.HEADER)
 
     //region Local state.
-    const settings = useSelector<StoreType, SettingsType>(state => state.settings)
+    const settings = useSelector(selectSettings)
     const dispatch = useDispatch()
     const {pathname} = useLocation()
     const navigate = useNavigate()

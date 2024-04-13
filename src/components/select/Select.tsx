@@ -1,11 +1,8 @@
 import s from './Select.module.css'
 import {KeyboardEvent, memo, MouseEvent, useState} from 'react'
 import {useAutoAnimate} from '@formkit/auto-animate/react'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {EMOJIS} from '../../constants/emojis'
-import {BUTTONS} from '../../constants/buttons'
-import {STRINGS} from '../../constants/strings'
+import {logRender} from '../../utils'
+import {BUTTONS, EMOJIS, RENDERS, STRINGS} from '../../constants'
 
 type SelectPropsType = {
     selectedOption: string

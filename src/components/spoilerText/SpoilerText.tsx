@@ -1,8 +1,7 @@
 import s from './SpoilerText.module.css'
 import {memo, ReactNode, useEffect, useState} from 'react'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {TITLES} from '../../constants/titles'
+import {logRender} from '../../utils'
+import {RENDERS, TITLES} from '../../constants'
 
 type SpoilerTextPropsType = {
     children: ReactNode

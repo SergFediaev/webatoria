@@ -4,14 +4,8 @@ import {ElementRef, FormEvent, useRef, useState} from 'react'
 import emailjs from '@emailjs/browser'
 import {useNavigate} from 'react-router-dom'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {EMOJIS} from '../../constants/emojis'
-import {TITLES} from '../../constants/titles'
-import {KEYS} from '../../constants/keys'
-import {PATHS} from '../../constants/paths'
-import {TYPES} from '../../constants/types'
-import {STRINGS} from '../../constants/strings'
+import {logRender} from '../../utils'
+import {EMOJIS, KEYS, PATHS, RENDERS, STRINGS, TITLES, TYPES} from '../../constants'
 
 export const CreateCard = () => {
     logRender(RENDERS.CREATE_CARD)

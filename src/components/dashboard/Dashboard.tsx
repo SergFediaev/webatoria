@@ -1,22 +1,19 @@
 import s from './Dashboard.module.css'
 import {useSelector} from 'react-redux'
-import {StoreType} from '../../store/store'
 import {Card} from '../card/Card'
-import {SettingsType} from '../../store/settings/settingsTypes'
-import {CardType} from '../../store/cards/cardsTypes'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {LINKS} from '../../constants/links'
-import {STRINGS} from '../../constants/strings'
+import {selectCards, selectSettingsFilter, selectSettingsReadingMode} from '../../store/selectors'
+import {logRender} from '../../utils'
+import {LINKS, RENDERS, STRINGS} from '../../constants'
 
 export const Dashboard = () => {
     logRender(RENDERS.DASHBOARD)
-    const cards = useSelector<StoreType, CardType[]>(state => state.cards)
-    const settings = useSelector<StoreType, SettingsType>(state => state.settings)
+    const cards = useSelector(selectCards)
+    const filter = useSelector(selectSettingsFilter)
+    const readingMode = useSelector(selectSettingsReadingMode)
 
     let filteredCards = cards
-    if (settings.filter === STRINGS.UNCATEGORIZED) filteredCards = cards.filter(card => card.tags.length === 0)
-    else if (settings.filter !== STRINGS.ALL) filteredCards = cards.filter(card => card.tags.includes(settings.filter))
+    if (filter === STRINGS.UNCATEGORIZED) filteredCards = cards.filter(card => card.tags.length === 0)
+    else if (filter !== STRINGS.ALL) filteredCards = cards.filter(card => card.tags.includes(filter))
 
     const cardElements = filteredCards.map(card => <Card key={card.id}
                                                          id={card.id}
@@ -27,7 +24,7 @@ export const Dashboard = () => {
                                                          dislikes={card.dislikes}
                                                          comments={card.comments}
                                                          favorite={card.favorite}
-                                                         open={settings.readingMode}/>)
+                                                         open={readingMode}/>)
     return cardElements.length > 0
         ? <div className={s.dashboard}>
             <ul>{cardElements}</ul>

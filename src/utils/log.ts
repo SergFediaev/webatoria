@@ -1,4 +1,4 @@
-import {STRINGS} from '../../constants/strings'
+import {STRINGS} from '../constants'
 
 const log = (...args: any) => console.log(args.join(STRINGS.EMPTY))
 

@@ -1,7 +1,7 @@
 import {memo, ReactNode} from 'react'
 import s from './ButtonIcon.module.css'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
+import {logRender} from '../../utils'
+import {RENDERS} from '../../constants'
 
 type ButtonIconPropsType = {
     children: ReactNode

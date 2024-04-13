@@ -1,6 +1,6 @@
 import s from './Error404.module.css'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
+import {logRender} from '../../utils'
+import {RENDERS} from '../../constants'
 
 export const Error404 = () => {
     logRender(RENDERS.ERROR_404)

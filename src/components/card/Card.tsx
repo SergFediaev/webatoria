@@ -3,14 +3,10 @@ import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {memo, useCallback, useEffect, useRef, useState} from 'react'
 import autoAnimate from '@formkit/auto-animate'
 import {useDispatch} from 'react-redux'
-import {likeCard} from '../../store/cards/cardsActions'
 import {useNavigate} from 'react-router-dom'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {EMOJIS} from '../../constants/emojis'
-import {TITLES} from '../../constants/titles'
-import {PATHS} from '../../constants/paths'
-import {STRINGS} from '../../constants/strings'
+import {logRender} from '../../utils'
+import {EMOJIS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
+import {dislikeCard, likeCard} from '../../store/actions'
 
 type CardPropsType = {
     id: string
@@ -50,6 +46,7 @@ export const Card = memo(({
 
     //region Handlers.
     const like = useCallback(() => dispatch(likeCard(id)), [dispatch, id])
+    const dislike = useCallback(() => dispatch(dislikeCard(id)), [dispatch, id])
     const copy = useCallback(() => navigator.clipboard.writeText(`${title}\n\n${text}`), [title, text])
     const view = useCallback(() => navigate(`${PATHS.CARD}/${id}`), [navigate, id])
     const toggleOpen = useCallback(() => setOpen(!open), [open])
@@ -64,7 +61,8 @@ export const Card = memo(({
         <div className={s.menu}>
             <ButtonIcon onClick={like}
                         title={TITLES.LIKE}>{EMOJIS.LIKE}{likes}</ButtonIcon>
-            <ButtonIcon title={TITLES.DISLIKE}>{EMOJIS.DISLIKE}{dislikes}</ButtonIcon>
+            <ButtonIcon onClick={dislike}
+                        title={TITLES.DISLIKE}>{EMOJIS.DISLIKE}{dislikes}</ButtonIcon>
             <ButtonIcon title={TITLES.COMMENTS}>{EMOJIS.COMMENTS}{comments.length}</ButtonIcon>
             <ButtonIcon title={TITLES.FAVORITE}>{EMOJIS.FAVORITE}</ButtonIcon>
             <ButtonIcon onClick={view}

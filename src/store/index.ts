@@ -1,6 +1,5 @@
 import {combineReducers, legacy_createStore} from 'redux'
-import {cardsReducer} from './cards/cardsReducer'
-import {settingsReducer} from './settings/settingsReducer'
+import {cardsReducer, settingsReducer} from './reducers'
 
 const rootReducer = combineReducers({
     cards: cardsReducer,
@@ -9,4 +8,4 @@ const rootReducer = combineReducers({
 
 export const store = legacy_createStore(rootReducer)
 
-export type StoreType = ReturnType<typeof rootReducer>
+export type StateType = ReturnType<typeof rootReducer>

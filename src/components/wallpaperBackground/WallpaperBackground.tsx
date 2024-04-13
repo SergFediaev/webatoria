@@ -1,7 +1,7 @@
 import s from './WallpaperBackground.module.css'
 import wallpaper1 from '../../assets/images/wallpaper1.jpg'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
+import {logRender} from '../../utils'
+import {RENDERS} from '../../constants'
 
 export const WallpaperBackground = () => {
     logRender(RENDERS.WALLPAPER_BACKGROUND)

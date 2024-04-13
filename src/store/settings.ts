@@ -1,6 +1,5 @@
-import {SettingsType} from './settingsTypes'
-import {KEYS} from '../../constants/keys'
-import {STRINGS} from '../../constants/strings'
+import {KEYS, STRINGS} from '../constants'
+import {SettingsType} from '../types'
 
 const defaultSettings: SettingsType = {
     readingMode: true,

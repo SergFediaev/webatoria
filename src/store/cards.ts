@@ -1,9 +1,8 @@
 import {v1} from 'uuid'
-import {OptionType} from '../../components/select/Select'
-import {CardType, DataType} from './cardsTypes'
-import {getRandomInteger} from '../mock'
-import {DEFAULT_VALUES} from '../../constants/defaultValues'
-import {STRINGS} from '../../constants/strings'
+import {DEFAULT_VALUES, STRINGS} from '../constants'
+import {OptionType} from '../components/select/Select'
+import {CardType, DataType} from '../types'
+import {getRandomInteger} from '../utils'
 
 const data: DataType[] = [
     {
@@ -67,7 +66,7 @@ export const getCards = () => {
     return cards
 }
 
-const createCard = (title: string, text: string, tags?: string[]) => ({
+const createCard = (title: string, text: string, tags?: string[]): CardType => ({
     id: v1(),
     title,
     text,
@@ -76,7 +75,7 @@ const createCard = (title: string, text: string, tags?: string[]) => ({
     dislikes: getRandomInteger() || DEFAULT_VALUES.DISLIKES,
     comments: Array<string>(getRandomInteger()),
     favorite: false,
-} as CardType)
+})
 
 export const cardOptions: OptionType[] = [
     {name: STRINGS.ALL},

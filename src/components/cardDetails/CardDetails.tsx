@@ -1,21 +1,19 @@
 import s from './CardDetails.module.css'
-import {useSelector} from 'react-redux'
-import {StoreType} from '../../store/store'
-import {CardType} from '../../store/cards/cardsTypes'
 import {Navigate, useNavigate, useParams} from 'react-router-dom'
 import {SpoilerText} from '../spoilerText/SpoilerText'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
-import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants/renders'
-import {EMOJIS} from '../../constants/emojis'
-import {TITLES} from '../../constants/titles'
-import {PATHS} from '../../constants/paths'
+import {selectSettingsReadingMode} from '../../store/selectors'
+import {useSelector} from 'react-redux'
+import {StateType} from '../../store'
+import {CardType} from '../../types'
+import {logRender} from '../../utils'
+import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 
 export const CardDetails = () => {
     const {id} = useParams()
-    const card = useSelector<StoreType, CardType | undefined>(state => state.cards.find(card => card.id === id))
+    const card = useSelector<StateType, CardType | undefined>(state => state.cards.find(card => card.id === id))
     logRender(RENDERS.CARD_DETAILS, card?.title)
-    const readingMode = useSelector<StoreType, boolean>(state => state.settings.readingMode)
+    const readingMode = useSelector(selectSettingsReadingMode)
     const navigate = useNavigate()
     const goDashboard = () => navigate(PATHS.DASHBOARD)
 
