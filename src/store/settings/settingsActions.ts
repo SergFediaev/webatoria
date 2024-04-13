@@ -1,5 +1,5 @@
-import {ACTION_TYPES} from '../../constants'
 import {FilterType} from './settingsTypes'
+import {ACTION_TYPES} from '../../constants/actionTypes'
 
 export const setReadingMode = (readingMode: boolean) => ({
     type: ACTION_TYPES.SET_READING_MODE,

@@ -1,7 +1,7 @@
 import {memo} from 'react'
 import s from './Overlay.module.css'
 import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants'
+import {RENDERS} from '../../constants/renders'
 
 type OverlayPropsType = { opacity?: number }
 

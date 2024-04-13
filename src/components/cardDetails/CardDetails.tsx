@@ -5,8 +5,11 @@ import {CardType} from '../../store/cards/cardsTypes'
 import {Navigate, useNavigate, useParams} from 'react-router-dom'
 import {SpoilerText} from '../spoilerText/SpoilerText'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
-import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 import {logRender} from '../../store/settings/settingsHelpers'
+import {RENDERS} from '../../constants/renders'
+import {EMOJIS} from '../../constants/emojis'
+import {TITLES} from '../../constants/titles'
+import {PATHS} from '../../constants/paths'
 
 export const CardDetails = () => {
     const {id} = useParams()

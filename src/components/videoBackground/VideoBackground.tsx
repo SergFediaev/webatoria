@@ -2,7 +2,7 @@ import s from './VideoBackground.module.css'
 import {memo} from 'react'
 import video1 from '../../assets/video/video1.mp4'
 import {logRender} from '../../store/settings/settingsHelpers'
-import {RENDERS} from '../../constants'
+import {RENDERS} from '../../constants/renders'
 
 type VideoBackgroundPropsType = {
     controls?: boolean

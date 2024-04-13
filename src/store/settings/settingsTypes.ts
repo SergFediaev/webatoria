@@ -1,5 +1,5 @@
-import {STRINGS} from '../../constants'
 import {changeFilter, setReadingMode} from './settingsActions'
+import {STRINGS} from '../../constants/strings'
 
 export type SettingsType = {
     readingMode: boolean

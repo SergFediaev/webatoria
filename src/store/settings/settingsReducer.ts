@@ -1,6 +1,6 @@
 import {SettingsActionsType, SettingsType} from './settingsTypes'
-import {ACTION_TYPES} from '../../constants'
 import {getSettings, setSettings} from './settings'
+import {ACTION_TYPES} from '../../constants/actionTypes'
 
 export const settingsReducer = (settings: SettingsType = getSettings(), action: SettingsActionsType): SettingsType => {
     const {type, payload} = action

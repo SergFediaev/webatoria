@@ -2,13 +2,14 @@ import React from 'react'
 import s from './App.module.css'
 import {Header} from '../header/Header'
 import {Navigate, Route, Routes} from 'react-router-dom'
-import {PATHS, RENDERS} from '../../constants'
 import {Dashboard} from '../dashboard/Dashboard'
 import {CardDetails} from '../cardDetails/CardDetails'
 import {Error404} from '../error404/Error404'
 import {Background} from '../background/Background'
 import {CreateCard} from '../createCard/CreateCard'
 import {logRender} from '../../store/settings/settingsHelpers'
+import {RENDERS} from '../../constants/renders'
+import {PATHS} from '../../constants/paths'
 
 export const App = () => {
     logRender(RENDERS.APP)

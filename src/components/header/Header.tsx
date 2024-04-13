@@ -1,5 +1,4 @@
 import s from './Header.module.css'
-import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {Select} from '../select/Select'
 import {cardOptions} from '../../store/cards/cards'
@@ -9,6 +8,10 @@ import {FilterType, SettingsType} from '../../store/settings/settingsTypes'
 import {changeFilter, setReadingMode} from '../../store/settings/settingsActions'
 import {useLocation, useNavigate} from 'react-router-dom'
 import {logRender} from '../../store/settings/settingsHelpers'
+import {RENDERS} from '../../constants/renders'
+import {EMOJIS} from '../../constants/emojis'
+import {TITLES} from '../../constants/titles'
+import {PATHS} from '../../constants/paths'
 
 export const Header = () => {
     logRender(RENDERS.HEADER)

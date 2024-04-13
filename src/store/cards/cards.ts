@@ -1,8 +1,9 @@
 import {v1} from 'uuid'
-import {DEFAULT_VALUES, STRINGS} from '../../constants'
 import {OptionType} from '../../components/select/Select'
 import {CardType, DataType} from './cardsTypes'
 import {getRandomInteger} from '../mock'
+import {DEFAULT_VALUES} from '../../constants/defaultValues'
+import {STRINGS} from '../../constants/strings'
 
 const data: DataType[] = [
     {

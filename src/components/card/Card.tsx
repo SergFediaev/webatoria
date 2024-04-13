@@ -1,5 +1,4 @@
 import s from './Card.module.css'
-import {EMOJIS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {memo, useCallback, useEffect, useRef, useState} from 'react'
 import autoAnimate from '@formkit/auto-animate'
@@ -7,6 +6,11 @@ import {useDispatch} from 'react-redux'
 import {likeCard} from '../../store/cards/cardsActions'
 import {useNavigate} from 'react-router-dom'
 import {logRender} from '../../store/settings/settingsHelpers'
+import {RENDERS} from '../../constants/renders'
+import {EMOJIS} from '../../constants/emojis'
+import {TITLES} from '../../constants/titles'
+import {PATHS} from '../../constants/paths'
+import {STRINGS} from '../../constants/strings'
 
 type CardPropsType = {
     id: string

@@ -3,9 +3,11 @@ import {useSelector} from 'react-redux'
 import {StoreType} from '../../store/store'
 import {Card} from '../card/Card'
 import {SettingsType} from '../../store/settings/settingsTypes'
-import {LINKS, RENDERS, STRINGS} from '../../constants'
 import {CardType} from '../../store/cards/cardsTypes'
 import {logRender} from '../../store/settings/settingsHelpers'
+import {RENDERS} from '../../constants/renders'
+import {LINKS} from '../../constants/links'
+import {STRINGS} from '../../constants/strings'
 
 export const Dashboard = () => {
     logRender(RENDERS.DASHBOARD)

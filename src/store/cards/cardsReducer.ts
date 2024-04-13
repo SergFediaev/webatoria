@@ -1,6 +1,6 @@
-import {ACTION_TYPES} from '../../constants'
 import {CardActionsType, CardType} from './cardsTypes'
 import {getCards} from './cards'
+import {ACTION_TYPES} from '../../constants/actionTypes'
 
 export const cardsReducer = (cards: CardType[] = getCards(), action: CardActionsType): CardType[] => {
     const {type, payload} = action

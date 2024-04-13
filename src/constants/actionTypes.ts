@@ -1,0 +1,5 @@
+export const ACTION_TYPES = {
+    SET_READING_MODE: 'SET_READING_MODE',
+    CHANGE_FILTER: 'CHANGE_FILTER',
+    LIKE_CARD: 'LIKE_CARD',
+} as const

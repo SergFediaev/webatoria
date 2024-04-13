@@ -1,0 +1,18 @@
+export const TITLES = {
+    GO_HOME: 'Go home',
+    CLOSE_AND_RETURN: 'Close & return to dashboard',
+    READ: 'Reading mode',
+    TRAINING: 'Training mode',
+    ADD: 'Create new card',
+    SETTINGS: 'Open settings',
+    LIKE: 'Like',
+    DISLIKE: 'Dislike',
+    COMMENTS: 'Comments',
+    FAVORITE: 'Add to favorites',
+    UNFAVORITE: 'Remove from favorites',
+    VIEW: 'View full',
+    COPY: 'Copy to clipboard',
+    CLOSE: 'Close',
+    OPEN: 'Open',
+    SHOW: 'Show',
+} as const
