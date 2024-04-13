@@ -1,4 +1,3 @@
-import {memo} from 'react'
 import s from './Header.module.css'
 import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
@@ -11,7 +10,7 @@ import {changeFilter, setReadingMode} from '../../store/settings/settingsActions
 import {useLocation, useNavigate} from 'react-router-dom'
 import {logRender} from '../../store/settings/settingsHelpers'
 
-export const Header = memo(() => {
+export const Header = () => {
     logRender(RENDERS.HEADER)
 
     //region Local state.
@@ -54,4 +53,4 @@ export const Header = memo(() => {
                         disabled={true}>{EMOJIS.SETTINGS}</ButtonIcon>
         </nav>
     </header>
-})
+}

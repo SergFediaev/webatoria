@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import React from 'react'
 import s from './App.module.css'
 import {Header} from '../header/Header'
 import {Navigate, Route, Routes} from 'react-router-dom'
@@ -10,7 +10,7 @@ import {Background} from '../background/Background'
 import {CreateCard} from '../createCard/CreateCard'
 import {logRender} from '../../store/settings/settingsHelpers'
 
-export const App = memo(() => {
+export const App = () => {
     logRender(RENDERS.APP)
     return <div className={s.app}>
         <Background/>
@@ -29,4 +29,4 @@ export const App = memo(() => {
             <Route path={PATHS.ERROR_404} element={<Error404/>}/>
         </Routes>
     </div>
-})
+}

@@ -1,5 +1,4 @@
 import s from './CardDetails.module.css'
-import {memo} from 'react'
 import {useSelector} from 'react-redux'
 import {StoreType} from '../../store/store'
 import {CardType} from '../../store/cards/cardsTypes'
@@ -9,7 +8,7 @@ import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 import {logRender} from '../../store/settings/settingsHelpers'
 
-export const CardDetails = memo(() => {
+export const CardDetails = () => {
     logRender(RENDERS.CARD_DETAILS)
     const {id} = useParams()
     const card = useSelector<StoreType, CardType | undefined>(state => state.cards.find(card => card.id === id))
@@ -29,4 +28,4 @@ export const CardDetails = memo(() => {
             </div>
         </div>
         : <Navigate to={PATHS.ERROR_404}/>
-})
+}

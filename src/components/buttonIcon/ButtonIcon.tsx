@@ -5,7 +5,7 @@ import {RENDERS} from '../../constants'
 
 type ButtonIconPropsType = {
     children: ReactNode
-    onClick: () => void
+    onClick?: () => void
     title?: string
     disabled?: boolean
 }

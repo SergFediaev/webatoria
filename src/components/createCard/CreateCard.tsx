@@ -1,13 +1,13 @@
 import s from './CreateCard.module.css'
 import {EMOJIS, KEYS, PATHS, RENDERS, STRINGS, TITLES, TYPES} from '../../constants'
 import {Button} from '../button/Button'
-import {ElementRef, FormEvent, memo, useRef, useState} from 'react'
+import {ElementRef, FormEvent, useRef, useState} from 'react'
 import emailjs from '@emailjs/browser'
 import {useNavigate} from 'react-router-dom'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {logRender} from '../../store/settings/settingsHelpers'
 
-export const CreateCard = memo(() => {
+export const CreateCard = () => {
     logRender(RENDERS.CREATE_CARD)
 
     //region Local state.
@@ -72,4 +72,4 @@ export const CreateCard = memo(() => {
                 </>}
         </div>
     </div>
-})
+}
