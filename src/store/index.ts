@@ -1,4 +1,4 @@
-import {combineReducers, legacy_createStore} from 'redux'
+import {combineReducers, compose, legacy_createStore, Store} from 'redux'
 import {cardsReducer, settingsReducer} from './reducers'
 
 const rootReducer = combineReducers({
@@ -6,6 +6,8 @@ const rootReducer = combineReducers({
     settings: settingsReducer,
 })
 
-export const store = legacy_createStore(rootReducer)
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+export const store: Store<StateType> = legacy_createStore(rootReducer, composeEnhancers())
 
 export type StateType = ReturnType<typeof rootReducer>
