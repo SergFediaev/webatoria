@@ -25,7 +25,6 @@ export const Header = () => {
     const setReadingModeHandler = () => dispatch(setReadingMode(!settings.readingMode))
     const goHome = () => navigate(PATHS.DASHBOARD)
     const createCard = () => navigate(PATHS.CREATE_CARD)
-    const stub = () => {} // TODO: remove stub.
     const isDashboard = pathname === PATHS.DASHBOARD
     const creating = pathname === PATHS.CREATE_CARD
     const showMode = pathname !== PATHS.CREATE_CARD && pathname !== PATHS.ERROR_404
@@ -48,8 +47,7 @@ export const Header = () => {
             </ButtonIcon>}
             {!creating && <ButtonIcon onClick={createCard}
                                       title={TITLES.ADD}>{EMOJIS.ADD}</ButtonIcon>}
-            <ButtonIcon onClick={stub}
-                        title={'Settings coming soon'} // TODO: Settings constant + disabled.
+            <ButtonIcon title={'Settings coming soon'} // TODO: Settings constant + disabled.
                         disabled={true}>{EMOJIS.SETTINGS}</ButtonIcon>
         </nav>
     </header>

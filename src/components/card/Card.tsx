@@ -1,7 +1,7 @@
 import s from './Card.module.css'
 import {EMOJIS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
-import {memo, useEffect, useRef, useState} from 'react'
+import {memo, useCallback, useEffect, useRef, useState} from 'react'
 import autoAnimate from '@formkit/auto-animate'
 import {useDispatch} from 'react-redux'
 import {likeCard} from '../../store/cards/cardsActions'
@@ -31,7 +31,7 @@ export const Card = memo(({
                               favorite,
                               ...rest
                           }: CardPropsType) => {
-    logRender(RENDERS.CARD)
+    logRender(RENDERS.CARD, title)
 
     //region Local state.
     const [open, setOpen] = useState<boolean>(rest.open || true)
@@ -45,11 +45,10 @@ export const Card = memo(({
     //endregion
 
     //region Handlers.
-    const like = () => dispatch(likeCard(id))
-    const copy = () => navigator.clipboard.writeText(`${title}\n\n${text}`)
-    const view = () => navigate(`${PATHS.CARD}/${id}`)
-    const toggleOpen = () => setOpen(!open)
-    const stub = () => {} // TODO: remove stub.
+    const like = useCallback(() => dispatch(likeCard(id)), [dispatch, id])
+    const copy = useCallback(() => navigator.clipboard.writeText(`${title}\n\n${text}`), [title, text])
+    const view = useCallback(() => navigate(`${PATHS.CARD}/${id}`), [navigate, id])
+    const toggleOpen = useCallback(() => setOpen(!open), [open])
     //endregion
 
     return <li className={s.card} ref={parent}>
@@ -61,12 +60,9 @@ export const Card = memo(({
         <div className={s.menu}>
             <ButtonIcon onClick={like}
                         title={TITLES.LIKE}>{EMOJIS.LIKE}{likes}</ButtonIcon>
-            <ButtonIcon onClick={stub}
-                        title={TITLES.DISLIKE}>{EMOJIS.DISLIKE}{dislikes}</ButtonIcon>
-            <ButtonIcon onClick={stub}
-                        title={TITLES.COMMENTS}>{EMOJIS.COMMENTS}{comments.length}</ButtonIcon>
-            <ButtonIcon onClick={stub}
-                        title={TITLES.FAVORITE}>{EMOJIS.FAVORITE}</ButtonIcon>
+            <ButtonIcon title={TITLES.DISLIKE}>{EMOJIS.DISLIKE}{dislikes}</ButtonIcon>
+            <ButtonIcon title={TITLES.COMMENTS}>{EMOJIS.COMMENTS}{comments.length}</ButtonIcon>
+            <ButtonIcon title={TITLES.FAVORITE}>{EMOJIS.FAVORITE}</ButtonIcon>
             <ButtonIcon onClick={view}
                         title={TITLES.VIEW}>{EMOJIS.VIEW}</ButtonIcon>
             <ButtonIcon onClick={copy}

@@ -9,9 +9,9 @@ import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
 import {logRender} from '../../store/settings/settingsHelpers'
 
 export const CardDetails = () => {
-    logRender(RENDERS.CARD_DETAILS)
     const {id} = useParams()
     const card = useSelector<StoreType, CardType | undefined>(state => state.cards.find(card => card.id === id))
+    logRender(RENDERS.CARD_DETAILS, card?.title)
     const readingMode = useSelector<StoreType, boolean>(state => state.settings.readingMode)
     const navigate = useNavigate()
     const goDashboard = () => navigate(PATHS.DASHBOARD)

@@ -16,7 +16,7 @@ export const ButtonIcon = memo(({
                                     title,
                                     disabled = false,
                                 }: ButtonIconPropsType) => {
-    logRender(RENDERS.BUTTON_ICON)
+    logRender(RENDERS.BUTTON_ICON, children?.toString())
     return <button
         className={s.buttonIcon}
         onClick={onClick}

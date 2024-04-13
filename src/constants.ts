@@ -23,22 +23,22 @@ export const STRINGS = {
 } as const
 
 export const RENDERS = {
-    APP: 'App render',
-    BACKGROUND: 'Background render',
-    BUTTON: 'Button render',
-    BUTTON_ICON: 'Button icon render',
-    CARD: 'Card render',
-    CARD_DETAILS: 'Card details render',
-    COLOR_BACKGROUND: 'Color background render',
-    CREATE_CARD: 'Create card render',
-    DASHBOARD: 'Dashboard render',
-    ERROR_404: 'Error 404 render',
-    HEADER: 'Header render',
-    OVERLAY: 'Overlay render',
-    SELECT: 'Select render',
-    SPOILER_TEXT: 'Spoiler text render',
-    VIDEO_BACKGROUND: 'Video background render',
-    WALLPAPER_BACKGROUND: 'Wallpaper background render',
+    APP: 'Render App',
+    BACKGROUND: 'Render Background',
+    BUTTON: 'Render Button',
+    BUTTON_ICON: 'Render ButtonIcon: ',
+    CARD: 'Render Card: ',
+    CARD_DETAILS: 'Render CardDetails: ',
+    COLOR_BACKGROUND: 'Render ColorBackground',
+    CREATE_CARD: 'Render CreateCard',
+    DASHBOARD: 'Render Dashboard',
+    ERROR_404: 'Render Error404',
+    HEADER: 'Render Header',
+    OVERLAY: 'Render Overlay',
+    SELECT: 'Render Select: ',
+    SPOILER_TEXT: 'Render SpoilerText',
+    VIDEO_BACKGROUND: 'Render VideoBackground',
+    WALLPAPER_BACKGROUND: 'Render WallpaperBackground',
 } as const
 
 export const EMOJIS = {

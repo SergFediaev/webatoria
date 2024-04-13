@@ -23,7 +23,7 @@ export const Select = memo(({
                                 setSelected,
                                 endlessSelect = true,
                             }: SelectPropsType) => {
-    logRender(RENDERS.SELECT)
+    logRender(RENDERS.SELECT, selectedOption)
 
     //region Local.
     const unlockedOptions = options.filter(option => !option.disabled)
