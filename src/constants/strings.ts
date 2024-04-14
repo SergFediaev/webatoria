@@ -1,6 +1,7 @@
 export const STRINGS = {
     EMPTY: '',
     COMMA_SPACE_DELIMITER: ', ',
+    COMMA_SEPARATOR: ',',
     TAGS: 'Tags',
     ALL: 'ALL',
     UNCATEGORIZED: 'Uncategorized',

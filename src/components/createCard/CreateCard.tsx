@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 import {useNavigate} from 'react-router-dom'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {logRender} from '../../utils'
-import {EMOJIS, KEYS, PATHS, RENDERS, STRINGS, TITLES, TYPES} from '../../constants'
+import {APIS, EMOJIS, KEYS, PATHS, RENDERS, STRINGS, TITLES, TYPES} from '../../constants'
 
 export const CreateCard = () => {
     logRender(RENDERS.CREATE_CARD)
@@ -23,7 +23,7 @@ export const CreateCard = () => {
         event.preventDefault()
         if (!form.current) return
 
-        emailjs.sendForm(KEYS.EMAIL_SERVICE_ID, KEYS.EMAIL_TEMPLATE_ID, form.current, KEYS.EMAIL_PUBLIC_KEY)
+        emailjs.sendForm(APIS.EMAIL_SERVICE_ID, APIS.EMAIL_TEMPLATE_ID, form.current, APIS.EMAIL_PUBLIC_KEY)
             .then(result => console.log(result.text), error => console.log(error.text)) // TODO: Add settings errors.
 
         event.currentTarget.reset()

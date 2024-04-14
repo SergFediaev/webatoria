@@ -1,4 +1,4 @@
-import {dislikeCard, likeCard} from '../store/actions'
+import {dislikeCard, likeCard, setCards} from '../store/actions'
 
 export type DataType = {
     title: string
@@ -15,4 +15,4 @@ export type CardType = {
     favorite: boolean
 } & DataType
 
-export type CardActionsType = ReturnType<typeof likeCard> | ReturnType<typeof dislikeCard>
+export type CardActionsType = ReturnType<typeof setCards> | ReturnType<typeof likeCard> | ReturnType<typeof dislikeCard>

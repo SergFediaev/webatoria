@@ -60,7 +60,7 @@ const data: DataType[] = [
     },
 ]
 
-export const getCards = () => {
+const createCards = () => {
     const cards: CardType[] = []
     data.forEach(data => cards.push(createCard(data.title, data.text, data.tags)))
     return cards

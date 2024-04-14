@@ -3,9 +3,9 @@ import React from 'react'
 import {VideoBackground} from '../videoBackground/VideoBackground'
 import {logRender} from '../../utils'
 import {RENDERS} from '../../constants'
+// import {Overlay} from '../overlay/Overlay'
 // import {ColorBackground} from '../colorBackground/ColorBackground'
 // import {WallpaperBackground} from '../wallpaperBackground/WallpaperBackground'
-// import {overlay} from '../overlay/overlay'
 
 export const Background = () => {
     logRender(RENDERS.BACKGROUND)
@@ -13,6 +13,6 @@ export const Background = () => {
         {/*<ColorBackground/>*/}
         {/*<WallpaperBackground/>*/}
         <VideoBackground/>
-        {/*<overlay/>*/}
+        {/*<Overlay/>*/}
     </div>
 }

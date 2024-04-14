@@ -1,3 +1,9 @@
+export const LOGS = {
+    SPREADSHEET_RAW: 'Spreadsheet raw response: ',
+    SPREADSHEET_JSON: 'Spreadsheet JSON\'ed: ',
+    SPREADSHEET_PARSED: 'Spreadsheet parsed: ',
+} as const
+
 export const RENDERS = {
     APP: 'Render App',
     BACKGROUND: 'Render Background',

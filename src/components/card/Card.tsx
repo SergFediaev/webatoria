@@ -5,8 +5,8 @@ import autoAnimate from '@formkit/auto-animate'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {logRender} from '../../utils'
-import {EMOJIS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
 import {dislikeCard, likeCard} from '../../store/actions'
+import {EMOJIS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
 
 type CardPropsType = {
     id: string
