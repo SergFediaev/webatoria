@@ -21,4 +21,5 @@ export const STRINGS = {
     CARD_SENT: 'Card created and sent for review. It will be on the dashboard soon. Thanks for contributing! 🤝',
     CREATE_MORE: 'Create more',
     TO_DASHBOARD: 'Back to dashboard',
+    CARD_ADDED: 'Card added: ',
 } as const

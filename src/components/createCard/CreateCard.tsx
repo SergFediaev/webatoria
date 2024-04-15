@@ -4,8 +4,10 @@ import {ElementRef, FormEvent, useRef, useState} from 'react'
 import emailjs from '@emailjs/browser'
 import {useNavigate} from 'react-router-dom'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
-import {logRender} from '../../utils'
 import {APIS, EMOJIS, KEYS, PATHS, RENDERS, STRINGS, TITLES, TYPES} from '../../constants'
+import {getFormElementValue, logRender} from '../../utils'
+import {SpreadsheetCardType} from '../../types'
+import {postCardToSpreadsheet} from '../../api'
 
 export const CreateCard = () => {
     logRender(RENDERS.CREATE_CARD)
@@ -22,6 +24,16 @@ export const CreateCard = () => {
     const create = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (!form.current) return
+
+        const {elements} = form.current
+        const card: SpreadsheetCardType = {
+            userName: getFormElementValue(elements.namedItem(KEYS.USER_NAME)),
+            userEmail: getFormElementValue(elements.namedItem(KEYS.USER_EMAIL)),
+            title: getFormElementValue(elements.namedItem(KEYS.CARD_TITLE)),
+            text: getFormElementValue(elements.namedItem(KEYS.CARD_CONTENT)),
+            tags: getFormElementValue(elements.namedItem(KEYS.CARD_CATEGORY)),
+        }
+        postCardToSpreadsheet(card) // TODO: Promise then/catch/finally & loading.
 
         emailjs.sendForm(APIS.EMAIL_SERVICE_ID, APIS.EMAIL_TEMPLATE_ID, form.current, APIS.EMAIL_PUBLIC_KEY)
             .then(result => console.log(result.text), error => console.log(error.text)) // TODO: Add settings errors.

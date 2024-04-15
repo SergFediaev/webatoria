@@ -1,3 +1,5 @@
+import {createApiResponseError, createApiResponseSuccess} from '../utils'
+
 export type SpreadsheetType = {
     spreadsheetId: string
     properties: SpreadsheetPropertiesType
@@ -50,3 +52,15 @@ type SheetRowDataValueType = {
     effectiveFormat: any
     textFormatRuns?: any[]
 }
+
+export type ApiResponseType = ReturnType<typeof createApiResponseSuccess> | ReturnType<typeof createApiResponseError>
+
+export type SpreadsheetCardType = {
+    userName?: string
+    userEmail?: string
+    title: string
+    text: string
+    tags?: string
+}
+
+export type FormElementType = Element | RadioNodeList | null
