@@ -15,4 +15,5 @@ export const TITLES = {
     CLOSE: 'Close',
     OPEN: 'Open',
     SHOW: 'Show',
+    CLEAR_SEARCH: 'Clear search',
 } as const

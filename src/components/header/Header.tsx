@@ -9,6 +9,7 @@ import {selectSettings} from '../../store/selectors'
 import {FilterType} from '../../types'
 import {changeFilter, setReadingMode} from '../../store/actions'
 import {cardOptions} from '../../store/cards'
+import {Search} from '../search/Search'
 
 export const Header = () => {
     logRender(RENDERS.HEADER)
@@ -32,6 +33,7 @@ export const Header = () => {
 
     return <header className={s.header}>
         <h1>Webat<span className={s.logo}>{EMOJIS.LOGO}</span>ria</h1>
+        {isDashboard && <Search/>}
         <nav>
             {!isDashboard && <ButtonIcon onClick={goHome}
                                          title={TITLES.GO_HOME}>{EMOJIS.HOME}</ButtonIcon>}

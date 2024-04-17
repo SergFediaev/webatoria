@@ -22,4 +22,5 @@ export const STRINGS = {
     CREATE_MORE: 'Create more',
     TO_DASHBOARD: 'Back to dashboard',
     CARD_ADDED: 'Card added: ',
+    CARD_SEARCH: 'Card search...',
 } as const

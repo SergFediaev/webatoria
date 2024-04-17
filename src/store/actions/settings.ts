@@ -14,3 +14,10 @@ export const changeFilter = (filter: FilterType) => ({
         filter,
     },
 } as const)
+
+export const searchCard = (query: string) => ({
+    type: ACTION_TYPES.SEARCH_CARD,
+    payload: {
+        query,
+    },
+} as const)

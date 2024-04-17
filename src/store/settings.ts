@@ -4,6 +4,7 @@ import {SettingsType} from '../types'
 const defaultSettings: SettingsType = {
     readingMode: true,
     filter: STRINGS.ALL,
+    searchQuery: STRINGS.EMPTY,
 }
 
 export const getSettings = (): SettingsType => {
