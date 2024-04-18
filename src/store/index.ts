@@ -1,9 +1,11 @@
 import {combineReducers, compose, legacy_createStore, Store} from 'redux'
-import {cardsReducer, settingsReducer} from './reducers'
+import {cardsReducer, notificationsReducer, settingsReducer, soundReducer} from './reducers'
 
 const rootReducer = combineReducers({
     cards: cardsReducer,
     settings: settingsReducer,
+    notifications: notificationsReducer,
+    sound: soundReducer,
 })
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

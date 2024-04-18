@@ -1,0 +1,47 @@
+.notifications {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 62, .9);
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    z-index: 2;
+    padding: 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow-y: scroll;
+    box-shadow: 5px 0 5px 1px rgba(0, 0, 0, .5);
+}
+
+.notifications::-webkit-scrollbar {
+    display: none;
+}
+
+.notifications header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.title h3 {
+    font-size: 2.5rem;
+    font-weight: 1000;
+}
+
+.title button {
+    font-size: 2rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}

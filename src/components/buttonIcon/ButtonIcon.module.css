@@ -1,9 +1,22 @@
 .buttonIcon {
+    position: relative;
     transition: .5s;
 }
 
 .buttonIcon:hover {
     transform: scale(1.2);
+}
+
+.buttonIcon sup {
+    font-weight: 1000;
+    min-width: 25px;
+    position: absolute;
+    right: 0;
+    background-color: #f00;
+    padding: 8px;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, .5);
 }
 
 /* TODO: Make common disabled style */

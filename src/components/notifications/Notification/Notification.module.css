@@ -1,0 +1,30 @@
+.notification {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+    background-color: darkslateblue;
+    border-radius: 20px;
+}
+
+.notification p {
+    font-size: inherit;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.buttons button {
+    padding: 10px;
+}
+
+.viewed {
+    opacity: .5;
+}
+
+.warning {
+    background-color: darkred;
+}

@@ -17,4 +17,6 @@ export const TITLES = {
     SHOW: 'Show',
     CLEAR_SEARCH: 'Clear search',
     DISMISS: 'Dismiss',
+    NOTIFICATIONS: 'Notifications',
+    REFRESH: 'Check new cards',
 } as const

@@ -21,4 +21,6 @@ export const EMOJIS = {
     SEARCH: '🔎',
     ASCENDING: '↑',
     DESCENDING: '↓',
+    NOTIFICATIONS: '🔔',
+    REFRESH: '🔄',
 } as const

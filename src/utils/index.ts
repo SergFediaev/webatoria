@@ -1,4 +1,5 @@
 export * from './api'
 export * from './cards'
 export * from './log'
+export * from './notifications'
 export {getRandomInteger} from './mock'

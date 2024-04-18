@@ -3,4 +3,7 @@ export const TYPES = {
     BUTTON: 'button',
     SUBMIT: 'submit',
     FORM: 'form',
+    ENDED: 'ended',
+    ONLINE: 'online',
+    OFFLINE: 'offline',
 } as const

@@ -1,17 +1,23 @@
 import {logRender} from '../../utils'
-import {EMOJIS, PATHS, RENDERS, TITLES} from '../../constants'
+import {EMOJIS, ERRORS, PATHS, RENDERS, STRINGS, TITLES} from '../../constants'
 import {useDispatch, useSelector} from 'react-redux'
 import {useLocation, useNavigate} from 'react-router-dom'
 import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {Select} from '../select/Select'
 import s from './Header.module.css'
-import {selectSettings} from '../../store/selectors'
+import {selectNotificationsCount, selectSettings, selectUnviewedNotificationsCount} from '../../store/selectors'
 import {Search} from '../search/Search'
-import {changeFilter, changeSort, setReadingMode} from '../../store/actions'
+import {addNotification, changeFilter, changeSort, playSound, setReadingMode} from '../../store/actions'
 import {FilterType, SortType} from '../../types'
 import {filterOptions, sortOptions} from '../../store/settings'
+import {getCardsFromSpreadsheet} from '../../api'
+import {SOUNDS} from '../../store/sound'
 
-export const Header = () => {
+type HeaderPropsType = {
+    toggleNotifications: () => void
+}
+
+export const Header = ({toggleNotifications}: HeaderPropsType) => {
     logRender(RENDERS.HEADER)
 
     //region Local state.
@@ -19,6 +25,10 @@ export const Header = () => {
     const dispatch = useDispatch()
     const {pathname} = useLocation()
     const navigate = useNavigate()
+    const notificationsCount = useSelector(selectNotificationsCount)
+    const notifications = notificationsCount > 0
+    const unviewedNotificationsCount = useSelector(selectUnviewedNotificationsCount)
+    const unviewedNotifications = unviewedNotificationsCount > 0
     //endregion
 
     //region Handlers.
@@ -30,6 +40,11 @@ export const Header = () => {
     const isDashboard = pathname === PATHS.DASHBOARD
     const creating = pathname === PATHS.CREATE_CARD
     const showMode = pathname !== PATHS.CREATE_CARD && pathname !== PATHS.ERROR_404
+    const handleSound = () => dispatch(playSound(SOUNDS.NOTIFICATION))
+    const refresh = () => getCardsFromSpreadsheet()
+        .then(cards => dispatch(addNotification(`${STRINGS.LOADED}${cards.length}`)))
+        .catch(reason => dispatch(addNotification(`${ERRORS.FETCHING_CARDS}${reason}`, true)))
+        .finally(handleSound)
     //endregion
 
     return <header className={s.header}>
@@ -45,6 +60,8 @@ export const Header = () => {
                 <Select selectedOption={settings.sort}
                         options={sortOptions}
                         setSelected={option => changeSortHandler(option)}/>
+                <ButtonIcon onClick={refresh}
+                            title={TITLES.REFRESH}>{EMOJIS.REFRESH}</ButtonIcon>
             </>}
             {showMode && <ButtonIcon onClick={setReadingModeHandler}
                                      title={settings.readingMode
@@ -55,6 +72,9 @@ export const Header = () => {
             </ButtonIcon>}
             {!creating && <ButtonIcon onClick={createCard}
                                       title={TITLES.ADD}>{EMOJIS.ADD}</ButtonIcon>}
+            {notifications && <ButtonIcon onClick={toggleNotifications}
+                                          title={TITLES.NOTIFICATIONS}>{EMOJIS.NOTIFICATIONS}{unviewedNotifications &&
+                <sup>{unviewedNotificationsCount}</sup>}</ButtonIcon>}
             <ButtonIcon title={'Settings coming soon'} // TODO: Settings constant + disabled.
                         disabled={true}>{EMOJIS.SETTINGS}</ButtonIcon>
         </nav>

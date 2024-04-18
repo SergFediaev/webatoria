@@ -33,4 +33,12 @@ export const STRINGS = {
     DISLIKES_DESCENDING: `${EMOJIS.DESCENDING} Dislikes`,
     COMMENTS_ASCENDING: `${EMOJIS.ASCENDING} Comments`,
     COMMENTS_DESCENDING: `${EMOJIS.DESCENDING} Comments`,
+    ONLINE: 'Internet connection is restored. App is online. Loaded actual cards from server.',
+    LOADED: 'Cards loaded from server: ',
+    VIEW: 'View',
+    VIEW_ALL: 'View all',
+    UNVIEW: 'Unview',
+    UNVIEW_ALL: 'Unview all',
+    DELETE: 'Delete',
+    CLEAR_ALL: 'Clear all',
 } as const
