@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/webatoria/static/css/main.a28b06dc.css",
-    "main.js": "/webatoria/static/js/main.5bcfde3e.js",
+    "main.css": "/webatoria/static/css/main.80cafadd.css",
+    "main.js": "/webatoria/static/js/main.6913c7f7.js",
     "static/js/453.35165fef.chunk.js": "/webatoria/static/js/453.35165fef.chunk.js",
     "static/media/video1.mp4": "/webatoria/static/media/video1.3154534c371edb10739b.mp4",
+    "static/media/notification.mp3": "/webatoria/static/media/notification.c2e317e2c93e87031424.mp3",
     "index.html": "/webatoria/index.html",
-    "main.a28b06dc.css.map": "/webatoria/static/css/main.a28b06dc.css.map",
-    "main.5bcfde3e.js.map": "/webatoria/static/js/main.5bcfde3e.js.map",
+    "main.80cafadd.css.map": "/webatoria/static/css/main.80cafadd.css.map",
+    "main.6913c7f7.js.map": "/webatoria/static/js/main.6913c7f7.js.map",
     "453.35165fef.chunk.js.map": "/webatoria/static/js/453.35165fef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a28b06dc.css",
-    "static/js/main.5bcfde3e.js"
+    "static/css/main.80cafadd.css",
+    "static/js/main.6913c7f7.js"
   ]
 }
