@@ -17,3 +17,8 @@ export const parseSpreadsheetToCards = (spreadsheet: SpreadsheetType): CardType[
         favorite: false,
     }
 })
+
+export const sortCards = (cards: CardType[], sort: keyof CardType, ascending: boolean) => cards.slice().sort((cardA, cardB) => {
+    const modifier = ascending ? 1 : -1
+    return cardA[sort] < cardB[sort] ? -1 * modifier : cardA[sort] > cardB[sort] ? 1 * modifier : 0
+})

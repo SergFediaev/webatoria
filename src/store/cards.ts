@@ -1,6 +1,5 @@
 import {v1} from 'uuid'
 import {DEFAULT_VALUES, STRINGS} from '../constants'
-import {OptionType} from '../components/select/Select'
 import {CardType, DataType} from '../types'
 import {getRandomInteger} from '../utils'
 
@@ -76,12 +75,3 @@ const createCard = (title: string, text: string, tags?: string[]): CardType => (
     comments: Array<string>(getRandomInteger()),
     favorite: false,
 })
-
-export const cardOptions: OptionType[] = [
-    {name: STRINGS.ALL},
-    {name: STRINGS.UNCATEGORIZED},
-    {name: STRINGS.REACT},
-    {name: STRINGS.JAVASCRIPT},
-    {name: STRINGS.HTML},
-    {name: STRINGS.CSS},
-]

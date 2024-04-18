@@ -1,19 +1,22 @@
 import s from './Dashboard.module.css'
 import {useSelector} from 'react-redux'
 import {Card} from '../card/Card'
-import {logRender} from '../../utils'
+import {logRender, sortCards} from '../../utils'
 import {LINKS, RENDERS, STRINGS} from '../../constants'
 import {
     selectCards,
     selectSettingsFilter,
     selectSettingsReadingMode,
     selectSettingsSearchQuery,
+    selectSettingsSort,
 } from '../../store/selectors'
+import {sortParams} from '../../store/settings'
 
 export const Dashboard = () => {
     logRender(RENDERS.DASHBOARD)
     const cards = useSelector(selectCards)
     const filter = useSelector(selectSettingsFilter)
+    const sort = useSelector(selectSettingsSort)
     const readingMode = useSelector(selectSettingsReadingMode)
     const searchQuery = useSelector(selectSettingsSearchQuery).toLowerCase()
 
@@ -27,17 +30,21 @@ export const Dashboard = () => {
         card.tags.some(tag => tag.toLowerCase().includes(searchQuery)),
     )
 
-    const cardElements = foundCards.map(card => <Card key={card.id}
-                                                      id={card.id}
-                                                      title={card.title}
-                                                      text={card.text}
-                                                      tags={card.tags}
-                                                      likes={card.likes}
-                                                      dislikes={card.dislikes}
-                                                      comments={card.comments}
-                                                      favorite={card.favorite}
-                                                      open={readingMode}/>)
-    return cardElements.length > 0
+    const sortedCards = sortCards(foundCards, sortParams[sort].key, sortParams[sort].ascending)
+    const cardElements = sortedCards.map(card => <Card key={card.id}
+                                                       id={card.id}
+                                                       title={card.title}
+                                                       text={card.text}
+                                                       tags={card.tags}
+                                                       likes={card.likes}
+                                                       dislikes={card.dislikes}
+                                                       comments={card.comments}
+                                                       favorite={card.favorite}
+                                                       open={readingMode}/>)
+    const showCards = cardElements.length > 0
+
+    // TODO: 2 components.
+    return showCards
         ? <div className={s.dashboard}>
             <ul>{cardElements}</ul>
         </div>

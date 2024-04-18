@@ -15,6 +15,11 @@ export const settingsReducer = (settings: SettingsType = getSettings(), action: 
             setSettings(settingsCopy)
             return settingsCopy
         }
+        case ACTION_TYPES.CHANGE_SORT: {
+            const settingsCopy: SettingsType = {...settings, sort: payload.sort}
+            setSettings(settingsCopy)
+            return settingsCopy
+        }
         case ACTION_TYPES.SEARCH_CARD:
             return {...settings, searchQuery: payload.query}
         default:

@@ -18,5 +18,7 @@ export const EMOJIS = {
     DOWN: '▼',
     STOP: '🧱',
     CANCEL: '❌',
-    SEARCH: '🔍',
+    SEARCH: '🔎',
+    ASCENDING: '↑',
+    DESCENDING: '↓',
 } as const

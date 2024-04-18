@@ -6,10 +6,10 @@ import {ButtonIcon} from '../buttonIcon/ButtonIcon'
 import {Select} from '../select/Select'
 import s from './Header.module.css'
 import {selectSettings} from '../../store/selectors'
-import {FilterType} from '../../types'
-import {changeFilter, setReadingMode} from '../../store/actions'
-import {cardOptions} from '../../store/cards'
 import {Search} from '../search/Search'
+import {changeFilter, changeSort, setReadingMode} from '../../store/actions'
+import {FilterType, SortType} from '../../types'
+import {filterOptions, sortOptions} from '../../store/settings'
 
 export const Header = () => {
     logRender(RENDERS.HEADER)
@@ -22,7 +22,8 @@ export const Header = () => {
     //endregion
 
     //region Handlers.
-    const changeFilterHandler = (filter: FilterType) => dispatch(changeFilter(filter))
+    const changeFilterHandler = (filter: string) => dispatch(changeFilter(filter as FilterType))
+    const changeSortHandler = (sort: string) => dispatch(changeSort(sort as SortType))
     const setReadingModeHandler = () => dispatch(setReadingMode(!settings.readingMode))
     const goHome = () => navigate(PATHS.DASHBOARD)
     const createCard = () => navigate(PATHS.CREATE_CARD)
@@ -37,9 +38,14 @@ export const Header = () => {
         <nav>
             {!isDashboard && <ButtonIcon onClick={goHome}
                                          title={TITLES.GO_HOME}>{EMOJIS.HOME}</ButtonIcon>}
-            {isDashboard && <Select selectedOption={settings.filter}
-                                    options={cardOptions}
-                                    setSelected={option => changeFilterHandler(option as FilterType)}/>}
+            {isDashboard && <>
+                <Select selectedOption={settings.filter}
+                        options={filterOptions}
+                        setSelected={option => changeFilterHandler(option)}/>
+                <Select selectedOption={settings.sort}
+                        options={sortOptions}
+                        setSelected={option => changeSortHandler(option)}/>
+            </>}
             {showMode && <ButtonIcon onClick={setReadingModeHandler}
                                      title={settings.readingMode
                                          ? TITLES.TRAINING

@@ -1,3 +1,5 @@
+import {EMOJIS} from './emojis'
+
 export const STRINGS = {
     EMPTY: '',
     COMMA_SPACE_DELIMITER: ', ',
@@ -23,4 +25,12 @@ export const STRINGS = {
     TO_DASHBOARD: 'Back to dashboard',
     CARD_ADDED: 'Card added: ',
     CARD_SEARCH: 'Card search...',
+    ALPHABET_ASCENDING: `${EMOJIS.ASCENDING} Alphabet`,
+    ALPHABET_DESCENDING: `${EMOJIS.DESCENDING} Alphabet`,
+    LIKES_ASCENDING: `${EMOJIS.ASCENDING} Likes`,
+    LIKES_DESCENDING: `${EMOJIS.DESCENDING} Likes`,
+    DISLIKES_ASCENDING: `${EMOJIS.ASCENDING} Dislikes`,
+    DISLIKES_DESCENDING: `${EMOJIS.DESCENDING} Dislikes`,
+    COMMENTS_ASCENDING: `${EMOJIS.ASCENDING} Comments`,
+    COMMENTS_DESCENDING: `${EMOJIS.DESCENDING} Comments`,
 } as const

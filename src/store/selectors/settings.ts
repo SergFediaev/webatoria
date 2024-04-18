@@ -6,4 +6,6 @@ export const selectSettingsReadingMode = (state: StateType) => state.settings.re
 
 export const selectSettingsFilter = (state: StateType) => state.settings.filter
 
+export const selectSettingsSort = (state: StateType) => state.settings.sort
+
 export const selectSettingsSearchQuery = (state: StateType) => state.settings.searchQuery
