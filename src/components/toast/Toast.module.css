@@ -1,0 +1,48 @@
+.toastContainer {
+    position: fixed;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 50px;
+    animation: slideIn 1s forwards;
+}
+
+.toast {
+    display: inline-block;
+    color: #0ff;
+    background-color: rgba(0, 0, 139, .8);
+    backdrop-filter: blur(5px);
+    padding: 30px 40px;
+    border-radius: 100px;
+    box-shadow: -5px 5px 5px 1px rgba(0, 0, 0, .5);
+    font-size: 1.5rem;
+    max-width: 800px;
+    cursor: pointer;
+}
+
+.warning {
+    background-color: rgba(30, 11, 13, .9);
+    color: #f00;
+}
+
+.dismiss {
+    animation: slideOut 1s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        bottom: -50vh;
+    }
+    to {
+        bottom: 0;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: -50vh;
+    }
+}

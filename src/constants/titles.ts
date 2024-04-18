@@ -16,4 +16,5 @@ export const TITLES = {
     OPEN: 'Open',
     SHOW: 'Show',
     CLEAR_SEARCH: 'Clear search',
+    DISMISS: 'Dismiss',
 } as const
