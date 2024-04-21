@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/webatoria/static/css/main.e5654bfa.css",
-    "main.js": "/webatoria/static/js/main.e720b150.js",
+    "main.js": "/webatoria/static/js/main.6d82e4c5.js",
     "static/js/453.35165fef.chunk.js": "/webatoria/static/js/453.35165fef.chunk.js",
     "static/media/motivate.mp4": "/webatoria/static/media/motivate.86b8197e935a50c1c292.mp4",
     "static/media/lift.mp4": "/webatoria/static/media/lift.fc05aa0e2b1591a43d12.mp4",
@@ -18,11 +18,11 @@
     "static/media/notification.mp3": "/webatoria/static/media/notification.c2e317e2c93e87031424.mp3",
     "index.html": "/webatoria/index.html",
     "main.e5654bfa.css.map": "/webatoria/static/css/main.e5654bfa.css.map",
-    "main.e720b150.js.map": "/webatoria/static/js/main.e720b150.js.map",
+    "main.6d82e4c5.js.map": "/webatoria/static/js/main.6d82e4c5.js.map",
     "453.35165fef.chunk.js.map": "/webatoria/static/js/453.35165fef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e5654bfa.css",
-    "static/js/main.e720b150.js"
+    "static/js/main.6d82e4c5.js"
   ]
 }
