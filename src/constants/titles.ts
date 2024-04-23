@@ -19,4 +19,6 @@ export const TITLES = {
     DISMISS: 'Dismiss',
     NOTIFICATIONS: 'Notifications',
     REFRESH: 'Check new cards',
+    LOVE: 'Love',
+    SOUL: 'Soul',
 } as const

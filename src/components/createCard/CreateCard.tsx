@@ -71,15 +71,15 @@ export const CreateCard = () => {
                         <textarea placeholder={STRINGS.CARD_CONTENT}
                                   name={KEYS.CARD_CONTENT}
                                   required/>
-                        <Button type={TYPES.SUBMIT}>{STRINGS.CREATE}</Button>
+                        <Button type={TYPES.SUBMIT} name={STRINGS.CREATE}/>
                     </form>
                 </>
                 : <>
                     <h3>{STRINGS.CARD_CREATED}</h3>
                     <p>{STRINGS.CARD_SENT}</p>
                     <div className={s.buttonsContainer}>
-                        <Button onClick={createMore}>{STRINGS.CREATE_MORE}</Button>
-                        <Button onClick={goDashboard}>{STRINGS.TO_DASHBOARD}</Button>
+                        <Button onClick={createMore} name={STRINGS.CREATE_MORE}/>
+                        <Button onClick={goDashboard} name={STRINGS.TO_DASHBOARD}/>
                     </div>
                 </>}
         </div>

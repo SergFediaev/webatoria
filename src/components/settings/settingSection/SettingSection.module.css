@@ -1,0 +1,53 @@
+.settingSection {
+    background-color: rgba(0, 0, 0, .9);
+    /*backdrop-filter: blur(10px); TODO: Select z-index bug */
+    max-width: 800px;
+    padding: 60px;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 5px 5px 1px rgba(0, 0, 0, .5);
+    width: 100%;
+}
+
+.settingSection header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 40px;
+}
+
+.settingSection h3,
+.settingSection header button {
+    font-size: 3rem;
+    font-weight: 1000;
+}
+
+.settingSection header button {
+    color: #61dafb;
+}
+
+.settingSection main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.settingSection p {
+    font-size: 1.5rem;
+}
+
+.settingSection a {
+    font-size: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid #61dafb;
+    padding-bottom: 4px;
+    display: inline-block;
+    transition: .5s;
+    word-wrap: anywhere;
+}
+
+.settingSection a:hover {
+    transform: scale(1.01);
+}

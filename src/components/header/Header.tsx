@@ -9,7 +9,7 @@ import {selectNotificationsCount, selectSettings, selectUnviewedNotificationsCou
 import {Search} from '../search/Search'
 import {addNotification, changeFilter, changeSort, playSound, setReadingMode} from '../../store/actions'
 import {FilterType, SortType} from '../../types'
-import {filterOptions, sortOptions} from '../../store/settings'
+import {filters, sorts} from '../../store/settings'
 import {getCardsFromSpreadsheet} from '../../api'
 import {SOUNDS} from '../../store/sound'
 
@@ -37,10 +37,12 @@ export const Header = ({toggleNotifications}: HeaderPropsType) => {
     const setReadingModeHandler = () => dispatch(setReadingMode(!settings.readingMode))
     const goHome = () => navigate(PATHS.DASHBOARD)
     const createCard = () => navigate(PATHS.CREATE_CARD)
+    const openSettings = () => navigate(PATHS.SETTINGS)
     const isDashboard = pathname === PATHS.DASHBOARD
+    const isSettings = pathname === PATHS.SETTINGS
     const creating = pathname === PATHS.CREATE_CARD
-    const showMode = pathname !== PATHS.CREATE_CARD && pathname !== PATHS.ERROR_404
-    const handleSound = () => dispatch(playSound(SOUNDS.NOTIFICATION))
+    const showMode = pathname !== PATHS.CREATE_CARD && pathname !== PATHS.ERROR_404 && pathname !== PATHS.SETTINGS
+    const handleSound = () => settings.notificationSound && dispatch(playSound(SOUNDS.NOTIFICATION))
     const refresh = () => getCardsFromSpreadsheet()
         .then(cards => dispatch(addNotification(`${STRINGS.LOADED}${cards.length}`)))
         .catch(reason => dispatch(addNotification(`${ERRORS.FETCHING_CARDS}${reason}`, true)))
@@ -55,10 +57,10 @@ export const Header = ({toggleNotifications}: HeaderPropsType) => {
                                          title={TITLES.GO_HOME}>{EMOJIS.HOME}</ButtonIcon>}
             {isDashboard && <>
                 <Select selectedOption={settings.filter}
-                        options={filterOptions}
+                        options={filters}
                         setSelected={option => changeFilterHandler(option)}/>
                 <Select selectedOption={settings.sort}
-                        options={sortOptions}
+                        options={sorts}
                         setSelected={option => changeSortHandler(option)}/>
                 <ButtonIcon onClick={refresh}
                             title={TITLES.REFRESH}>{EMOJIS.REFRESH}</ButtonIcon>
@@ -75,8 +77,8 @@ export const Header = ({toggleNotifications}: HeaderPropsType) => {
             {notifications && <ButtonIcon onClick={toggleNotifications}
                                           title={TITLES.NOTIFICATIONS}>{EMOJIS.NOTIFICATIONS}{unviewedNotifications &&
                 <sup>{unviewedNotificationsCount}</sup>}</ButtonIcon>}
-            <ButtonIcon title={'Settings coming soon'} // TODO: Settings constant + disabled.
-                        disabled={true}>{EMOJIS.SETTINGS}</ButtonIcon>
+            {!isSettings && <ButtonIcon onClick={openSettings}
+                                        title={TITLES.SETTINGS}>{EMOJIS.SETTINGS}</ButtonIcon>}
         </nav>
     </header>
 }

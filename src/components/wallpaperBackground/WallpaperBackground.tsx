@@ -1,10 +1,16 @@
 import s from './WallpaperBackground.module.css'
-import wallpaper1 from '../../assets/images/wallpaper1.jpg'
 import {logRender} from '../../utils'
-import {RENDERS} from '../../constants'
+import {LINKS, RENDERS, STRINGS} from '../../constants'
+import {useSelector} from 'react-redux'
+import {selectBackgroundVariant, selectBackgroundWallpaper} from '../../store/selectors'
+import {wallpapers} from '../../store/background'
 
 export const WallpaperBackground = () => {
     logRender(RENDERS.WALLPAPER_BACKGROUND)
-    return <div className={s.wallpaperBackground}
-                style={{backgroundImage: `url(${wallpaper1})`}}/>
+    const variant = useSelector(selectBackgroundVariant)
+    const wallpaper = useSelector(selectBackgroundWallpaper)
+    const image = variant === STRINGS.WALLPAPER ? wallpapers[wallpaper].file : LINKS.RANDOM_BACKGROUND_URL
+    const backgroundImage = `url(${image})`
+
+    return <div className={s.wallpaperBackground} style={{backgroundImage}}/>
 }

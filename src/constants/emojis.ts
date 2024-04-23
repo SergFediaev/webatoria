@@ -8,7 +8,7 @@ export const EMOJIS = {
     LIKE: '👍',
     DISLIKE: '👎',
     COMMENTS: '💬',
-    FAVORITE: '🧡',
+    HEART: '🧡',
     UNFAVORITE: '💔',
     VIEW: '👀',
     COPY: '📋',
@@ -23,4 +23,7 @@ export const EMOJIS = {
     DESCENDING: '↓',
     NOTIFICATIONS: '🔔',
     REFRESH: '🔄',
+    LOVE: '🥰',
+    SOUL: '😇',
+    FIRE: '🔥',
 } as const

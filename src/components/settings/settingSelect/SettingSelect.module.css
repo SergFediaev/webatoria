@@ -1,0 +1,12 @@
+.settingSelect {
+    display: flex;
+    gap: 80px;
+}
+
+.settingSelect div {
+    flex-grow: 1;
+}
+
+.settingSelect .name {
+    font-size: 1.5rem;
+}

@@ -23,7 +23,10 @@ export const Notifications = ({close}: NotificationsPropsType) => {
     //region Handlers.
     const view = () => dispatch(setViewNotifications(true))
     const unview = () => dispatch(setViewNotifications(false))
-    const clear = () => dispatch(clearNotifications())
+    const clear = () => {
+        dispatch(clearNotifications())
+        close()
+    }
     //endregion
 
     const notificationsElements = notifications.map(notification => <Notification key={notification.id}
@@ -41,9 +44,9 @@ export const Notifications = ({close}: NotificationsPropsType) => {
                             title={TITLES.CLOSE}>{EMOJIS.CANCEL}</ButtonIcon>
             </div>
             {showNotifications && <div className={s.buttons}>
-                {unviewedNotifications && <Button onClick={view}>{STRINGS.VIEW_ALL}</Button>}
-                {viewedNotifications && <Button onClick={unview}>{STRINGS.UNVIEW_ALL}</Button>}
-                <Button onClick={clear}>{STRINGS.CLEAR_ALL}</Button>
+                {unviewedNotifications && <Button onClick={view} name={STRINGS.VIEW_ALL}/>}
+                {viewedNotifications && <Button onClick={unview} name={STRINGS.UNVIEW_ALL}/>}
+                <Button onClick={clear} name={STRINGS.CLEAR_ALL}/>
             </div>}
         </header>
         {notificationsElements}

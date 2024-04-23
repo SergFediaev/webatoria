@@ -6,4 +6,5 @@
     left: 0;
     background-color: #000;
     z-index: -1;
+    /* TODO: Loading overlay layer bug */
 }

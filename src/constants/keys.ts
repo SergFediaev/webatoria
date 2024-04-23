@@ -10,4 +10,5 @@ export const KEYS = {
     LIKES: 'likes',
     DISLIKES: 'dislikes',
     COMMENTS: 'comments',
+    BACKGROUND: 'BACKGROUND',
 } as const

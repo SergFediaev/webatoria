@@ -26,8 +26,8 @@ export const Notification = ({id, message, viewed, warning, actions}: Notificati
                 ref={animate}>
         <p>{message}</p>
         {hovered && <div className={s.buttons}>
-            <Button onClick={view}>{viewed ? STRINGS.UNVIEW : STRINGS.VIEW}</Button>
-            <Button onClick={handleDelete}>{STRINGS.DELETE}</Button>
+            <Button onClick={view} name={viewed ? STRINGS.UNVIEW : STRINGS.VIEW}/>
+            <Button onClick={handleDelete} name={STRINGS.DELETE}/>
         </div>}
     </div>
 }

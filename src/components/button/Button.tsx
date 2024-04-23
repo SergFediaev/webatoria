@@ -1,17 +1,17 @@
 import s from './Button.module.css'
-import {memo, ReactNode} from 'react'
+import {memo} from 'react'
 import {RENDERS, TYPES} from '../../constants'
 import {logRender} from '../../utils'
 
 type ButtonPropsType = {
-    children: ReactNode
+    name: string
     onClick?: () => void
     title?: string
     type?: typeof TYPES.BUTTON | typeof TYPES.SUBMIT
 }
 
 export const Button = memo(({
-                                children,
+                                name,
                                 onClick,
                                 title,
                                 type = TYPES.BUTTON,
@@ -21,5 +21,5 @@ export const Button = memo(({
         className={s.button}
         onClick={onClick}
         title={title}
-        type={type}>{children}</button>
+        type={type}>{name}</button>
 })

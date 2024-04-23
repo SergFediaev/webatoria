@@ -4,7 +4,7 @@ import {logRender} from '../../utils'
 import {RENDERS} from '../../constants'
 
 type ButtonIconPropsType = {
-    children: ReactNode
+    children: ReactNode // ToDo: Refactor to name without children, like BaseButton.
     onClick?: () => void
     title?: string
     disabled?: boolean

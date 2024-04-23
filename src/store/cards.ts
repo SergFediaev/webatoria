@@ -75,3 +75,5 @@ const createCard = (title: string, text: string, tags?: string[]): CardType => (
     comments: Array<string>(getRandomInteger()),
     favorite: false,
 })
+
+// ToDo: Clean.

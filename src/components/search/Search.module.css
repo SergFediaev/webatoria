@@ -17,7 +17,7 @@
     text-overflow: ellipsis;
     padding: 0 20px;
     font-size: inherit;
-    color: #fff;
+    color: inherit;
     min-width: 0;
 }
 

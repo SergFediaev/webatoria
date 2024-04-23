@@ -1,22 +1,23 @@
-import {KEYS, STRINGS} from '../constants'
-import {SettingsType, SortParamsType} from '../types'
+import {KEYS, STRINGS, TIME} from '../constants'
+import {IntervalsType, SettingsType, SortParamsType} from '../types'
 import {OptionType} from '../components/select/Select'
 
-const defaultSettings: SettingsType = {
+export const defaultSettings: SettingsType = {
     readingMode: true,
     filter: STRINGS.ALL,
     sort: STRINGS.ALPHABET_ASCENDING,
     searchQuery: STRINGS.EMPTY,
+    notificationSound: false,
+    language: STRINGS.ENGLISH,
+    autoUpdateCards: true,
+    autoUpdateCardsInterval: STRINGS.HALF_MINUTE,
+    customCardsWarning: true,
+    devMode: false,
+    logRender: false,
+    showMarkup: false,
 }
 
-export const getSettings = (): SettingsType => {
-    const setting = localStorage.getItem(KEYS.SETTINGS)
-    return setting ? JSON.parse(setting) : defaultSettings
-}
-
-export const setSettings = (settings: SettingsType) => localStorage.setItem(KEYS.SETTINGS, JSON.stringify(settings))
-
-export const filterOptions: OptionType[] = [
+export const filters: OptionType[] = [
     {name: STRINGS.ALL},
     {name: STRINGS.UNCATEGORIZED},
     {name: STRINGS.REACT},
@@ -25,7 +26,7 @@ export const filterOptions: OptionType[] = [
     {name: STRINGS.CSS},
 ]
 
-export const sortOptions: OptionType[] = [
+export const sorts: OptionType[] = [
     {name: STRINGS.ALPHABET_ASCENDING},
     {name: STRINGS.ALPHABET_DESCENDING},
     {name: STRINGS.LIKES_ASCENDING},
@@ -45,4 +46,15 @@ export const sortParams: SortParamsType = {
     [STRINGS.DISLIKES_DESCENDING]: {label: STRINGS.DISLIKES_DESCENDING, key: KEYS.DISLIKES, ascending: false},
     [STRINGS.COMMENTS_ASCENDING]: {label: STRINGS.COMMENTS_ASCENDING, key: KEYS.COMMENTS, ascending: true},
     [STRINGS.COMMENTS_DESCENDING]: {label: STRINGS.COMMENTS_DESCENDING, key: KEYS.COMMENTS, ascending: false},
+}
+
+export const languages: OptionType[] = [
+    {name: STRINGS.ENGLISH},
+    {name: STRINGS.RUSSIAN},
+]
+
+export const intervals: IntervalsType = {
+    [STRINGS.HALF_MINUTE]: {name: STRINGS.HALF_MINUTE, time: TIME.HALF_MINUTE},
+    [STRINGS.MINUTE]: {name: STRINGS.MINUTE, time: TIME.MINUTE},
+    [STRINGS.TEN_MINUTES]: {name: STRINGS.TEN_MINUTES, time: TIME.TEN_MINUTES},
 }

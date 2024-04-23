@@ -1,16 +1,21 @@
 import s from './Dashboard.module.css'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {Card} from '../card/Card'
-import {logRender, sortCards} from '../../utils'
-import {LINKS, RENDERS, STRINGS} from '../../constants'
+import {log, logRender, sortCards} from '../../utils'
+import {ERRORS, RENDERS, STRINGS} from '../../constants'
 import {
     selectCards,
+    selectSettingsAutoUpdateCards,
+    selectSettingsAutoUpdateCardsInterval,
     selectSettingsFilter,
     selectSettingsReadingMode,
     selectSettingsSearchQuery,
     selectSettingsSort,
 } from '../../store/selectors'
-import {sortParams} from '../../store/settings'
+import {intervals, sortParams} from '../../store/settings'
+import {useEffect} from 'react'
+import {getCardsFromSpreadsheet} from '../../api'
+import {addNotification} from '../../store/actions'
 
 export const Dashboard = () => {
     logRender(RENDERS.DASHBOARD)
@@ -19,16 +24,28 @@ export const Dashboard = () => {
     const sort = useSelector(selectSettingsSort)
     const readingMode = useSelector(selectSettingsReadingMode)
     const searchQuery = useSelector(selectSettingsSearchQuery).toLowerCase()
+    const autoUpdateCards = useSelector(selectSettingsAutoUpdateCards)
+    const autoUpdateCardsInterval = useSelector(selectSettingsAutoUpdateCardsInterval)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (autoUpdateCards) {
+            const intervalId = setInterval(() => getCardsFromSpreadsheet()
+                .then(cards => log(STRINGS.UPDATED, cards.length))
+                .catch(reason => dispatch(addNotification(`${ERRORS.FETCHING_CARDS}${reason}`, true))), intervals[autoUpdateCardsInterval].time)
+
+            return () => clearInterval(intervalId)
+        }
+    }, [autoUpdateCards, autoUpdateCardsInterval, dispatch])
 
     let filteredCards = cards
     if (filter === STRINGS.UNCATEGORIZED) filteredCards = cards.filter(card => card.tags.length === 0)
     else if (filter !== STRINGS.ALL) filteredCards = cards.filter(card => card.tags.includes(filter))
 
-    let foundCards = filteredCards
-    if (searchQuery) foundCards = filteredCards.filter(card => card.title.toLowerCase().includes(searchQuery) ||
+    const foundCards = searchQuery ? filteredCards.filter(card => card.title.toLowerCase().includes(searchQuery) ||
         card.text.toLowerCase().includes(searchQuery) ||
         card.tags.some(tag => tag.toLowerCase().includes(searchQuery)),
-    )
+    ) : filteredCards
 
     const sortedCards = sortCards(foundCards, sortParams[sort].key, sortParams[sort].ascending)
     const cardElements = sortedCards.map(card => <Card key={card.id}
@@ -41,14 +58,7 @@ export const Dashboard = () => {
                                                        comments={card.comments}
                                                        favorite={card.favorite}
                                                        open={readingMode}/>)
-    const showCards = cardElements.length > 0
-
-    // TODO: 2 components.
-    return showCards
-        ? <div className={s.dashboard}>
-            <ul>{cardElements}</ul>
-        </div>
-        : <div className={s.project}>
-            <a href={LINKS.PROJECT_REPO_URL}>{LINKS.PROJECT_REPO_NAME}</a>
-        </div>
+    return <div className={s.dashboard}>
+        <ul>{cardElements}</ul>
+    </div>
 }

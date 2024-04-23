@@ -1,5 +1,19 @@
 import {STRINGS} from '../constants'
-import {changeFilter, changeSort, searchCard, setReadingMode} from '../store/actions'
+import {
+    changeFilter,
+    changeSort,
+    resetSettings,
+    searchCard,
+    setAutoUpdateCards,
+    setAutoUpdateCardsInterval,
+    setCustomCardsWarning,
+    setDevMode,
+    setLanguage,
+    setLogRender,
+    setNotificationSound,
+    setReadingMode,
+    setMarkup,
+} from '../store/actions'
 import {CardType} from './cards'
 
 export type SettingsType = {
@@ -7,6 +21,14 @@ export type SettingsType = {
     filter: FilterType
     sort: SortType
     searchQuery: string
+    notificationSound: boolean
+    language: LanguageType
+    autoUpdateCards: boolean
+    autoUpdateCardsInterval: AutoUpdateCardsIntervalType
+    customCardsWarning: boolean
+    devMode: boolean
+    logRender: boolean
+    showMarkup: boolean
 }
 
 export type FilterType = typeof STRINGS.ALL
@@ -35,8 +57,28 @@ type SortParamType = {
     ascending: boolean
 }
 
+export type LanguageType = typeof STRINGS.ENGLISH | typeof STRINGS.RUSSIAN
+
+export type AutoUpdateCardsIntervalType =
+    typeof STRINGS.HALF_MINUTE
+    | typeof STRINGS.MINUTE
+    | typeof STRINGS.TEN_MINUTES
+
 export type SettingsActionsType =
     ReturnType<typeof setReadingMode>
     | ReturnType<typeof changeFilter>
     | ReturnType<typeof changeSort>
     | ReturnType<typeof searchCard>
+    | ReturnType<typeof setNotificationSound>
+    | ReturnType<typeof setLanguage>
+    | ReturnType<typeof setAutoUpdateCards>
+    | ReturnType<typeof setAutoUpdateCardsInterval>
+    | ReturnType<typeof setCustomCardsWarning>
+    | ReturnType<typeof setDevMode>
+    | ReturnType<typeof setLogRender>
+    | ReturnType<typeof setMarkup>
+    | ReturnType<typeof resetSettings>
+
+export type IntervalsType = {
+    [interval: string]: { name: string, time: number }
+}
