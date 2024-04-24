@@ -35,6 +35,7 @@ export const Notifications = ({close}: NotificationsPropsType) => {
                                                                                   viewed={notification.viewed}
                                                                                   warning={notification.warning}
                                                                                   actions={notification.actions}/>)
+    notificationsElements.length === 0 && close()
 
     return <div className={s.notifications}>
         <header>

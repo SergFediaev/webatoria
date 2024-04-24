@@ -68,6 +68,7 @@ export const STRINGS = {
     LIFT: 'Lift',
     PAIN: 'Pain',
     RAIN: 'Rain',
+    WALKING: 'Walking',
     HALF_MINUTE: '30 seconds',
     MINUTE: '1 minute',
     TEN_MINUTES: '10 minutes',
