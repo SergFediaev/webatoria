@@ -12,6 +12,7 @@ import lift from '../assets/video/lift.mp4'
 import pain from '../assets/video/pain.mp4'
 import rain_en from '../assets/video/rain_en.mp4'
 import walking from '../assets/video/walking.mp4'
+import dancing from '../assets/video/dancing.mp4'
 import {BackgroundType, ColorsType, VideosType, WallpapersType} from '../types'
 
 export const defaultBackground: BackgroundType = {
@@ -57,4 +58,5 @@ export const videos: VideosType = {
     [STRINGS.PAIN]: {name: STRINGS.PAIN, file: pain},
     [STRINGS.RAIN]: {name: STRINGS.RAIN, file: rain_en},
     [STRINGS.WALKING]: {name: STRINGS.WALKING, file: walking},
+    [STRINGS.DANCING]: {name: STRINGS.DANCING, file: dancing},
 }
