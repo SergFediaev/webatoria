@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/webatoria/static/css/main.a36f41bc.css",
-    "main.js": "/webatoria/static/js/main.c6b3a23f.js",
+    "main.js": "/webatoria/static/js/main.9158c025.js",
     "static/js/453.35165fef.chunk.js": "/webatoria/static/js/453.35165fef.chunk.js",
     "static/media/motivate.mp4": "/webatoria/static/media/motivate.86b8197e935a50c1c292.mp4",
     "static/media/lift.mp4": "/webatoria/static/media/lift.fc05aa0e2b1591a43d12.mp4",
+    "static/media/dancing.mp4": "/webatoria/static/media/dancing.9e8e806f9b8bf8da0971.mp4",
     "static/media/fireplace.mp4": "/webatoria/static/media/fireplace.09e37a2583f855f711dc.mp4",
     "static/media/rain_ru.mp4": "/webatoria/static/media/rain_ru.0d8693ea3281bbd38d42.mp4",
     "static/media/walking.mp4": "/webatoria/static/media/walking.2c77712d9ac1b4b47959.mp4",
@@ -19,11 +20,11 @@
     "static/media/notification.mp3": "/webatoria/static/media/notification.c2e317e2c93e87031424.mp3",
     "index.html": "/webatoria/index.html",
     "main.a36f41bc.css.map": "/webatoria/static/css/main.a36f41bc.css.map",
-    "main.c6b3a23f.js.map": "/webatoria/static/js/main.c6b3a23f.js.map",
+    "main.9158c025.js.map": "/webatoria/static/js/main.9158c025.js.map",
     "453.35165fef.chunk.js.map": "/webatoria/static/js/453.35165fef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a36f41bc.css",
-    "static/js/main.c6b3a23f.js"
+    "static/js/main.9158c025.js"
   ]
 }
